@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Application.Application" android:versionCode="1" android:versionName="1.0">
+  <!--suppress UsesMinSdkAttributes-->
+  <uses-sdk android:minSdkVersion="16" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <application android:label="Application" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <activity android:label="AdministratieActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.AdministratieActivity" />
+    <activity android:label="GeluktActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.GeluktActivity" />
+    <activity android:label="KlantActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.KlantActivity" />
+    <activity android:label="KlantSnelstartActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.KlantSnelstartActivity" />
+    <activity android:label="KlantTelefoonActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.KlantTelefoonActivity" />
+    <activity android:label="LeverancierActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.LeverancierActivity" />
+    <activity android:label="LeverancierSnelstartActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.LeverancierSnelstartActivity" />
+    <activity android:label="LeverancierTelefoonActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.LeverancierTelefoonActivity" />
+    <activity android:icon="@drawable/icon" android:label="Application" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:label="SelectieActivity" android:name="md5d9bd52cc8fc11e80f784c2a26449778e.SelectieActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="Application.Application.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.Application.Application" />
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>
