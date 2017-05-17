@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@android:color/background_light"
+    android:layout_height="match_parent">
+    <ImageView
+        android:src="@drawable/Snelstart"
+        android:id="@+id/SnelstartLogo2"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp" />
+    <TextView
+        android:id="@+id/WelkomText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welkom"
+        android:textColor="368DEB"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginBottom="10dp" />
+    <TextView
+        android:id="@+id/KiesAdministratieText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="Left"
+        android:text="Kies uw administratie:"
+        android:textColor="368DEB"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginBottom="20dp" />
+    <ListView
+        android:id="@+id/ListViewAdministratie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp" />
+    <Button
+        android:text="Verder"
+        android:textColor="368DEB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/Borders"
+        android:id="@+id/Verder"
+        android:layout_marginBottom="10dp" />
+    <Button
+        android:text="Staat uw administratie niet in de lijst?"
+        android:textColor="#0000FF"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="Light"
+        android:id="@+id/GeenAdministratie" />
+</LinearLayout>
