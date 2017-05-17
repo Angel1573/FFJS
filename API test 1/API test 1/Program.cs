@@ -19,6 +19,7 @@ namespace CSHttpClientSample
     {
         public static string koppelingkey = "MEFBQVRaQnNIcHpFbkhyYVZlQW5xN0tuOGduelowRURsS2ZFa0p5TFhqZEUvUEF6OEdaOFV5OHc2ZlQzVzl5S3gyeG9FaS9mY2o4M09WUkFsd0FRbFFBdldwdGlhYjR1dHcra0kzQ1pWSy9rRnh5RkFDT2NzWngxRm5NeG9oMWFyajQ5Y28xVmJUYVRqbzRLWWREcUxGeXFuaTR2ZU9ic3FZWmlCdWk4UVZnUzlFQUxTSVk1NjFHYkh4RmVYQ3BkdC82dTZxZ2NiYTVlQzg3VTA4dmUrcEo2NFFOS1hkeUZWV3dmL1o5dGVFZHdyTnF0UU1VOTI0VkxaRE5LWkMwNjpvM1lxT2UwSHlwMW1EWDJGMDVBcVllWnp5ZmU4OXBwN0J3eEpLWVRrOU9xOEhuWGo1M0dkSEVTYWlhZnR5UkVQcFhFcUNmdDlWN3pqSWpSUmZlZzcyelF3eXJoekxmM3NXTVFnY1F3U2s1LzZNd3BHYWJrWkI0NlN3MTFySDBoWkZDZ0NtS0NBaXo4QThMZGs0bWVJK2d0bjJjVGhRS1VGS2RKd3NCSW9RTkVJSVB6RmJ5Y1pLNmtMcVNiTVdGNndodkQyTllVS3VlZEdDc0N6dUo5SEdMNEU2TVRXdkd4aU9kUXdreEppZTJsN1pDNWxmbDZxZjE0bk85NnVBTmtM";
         public static string APIkey = "e8c56e54886f4005915425073f127183";
+        public static string Authkey = "";
        
         static void Main()
         {
@@ -39,7 +40,7 @@ namespace CSHttpClientSample
                         
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer 6NjlcfnqRHdnmQj9KsNzlGsY5Z3phurR-Nz-MhCTY4VCQwJy9kNZXQkbgDShUNutGw_ngtEFXTPOO5z2RFlicE4ZI7kaciFjd83meY-zYF-tCUkuJxTm1Q7vfI0wmVs3XfWL7o_7q8jLqJFDUnaNri6S3_Hsymb-gy7SCpajaSqm5txfR1V7PjhTcfVjrfdhTeh3vdagy30VzqpSEn71-RvaVRB0F9WfzIIAk4ETcoKILhhC3Bi55uCvMpH3KXKErQLfjMRQO8i7iyvZiEp_zRmAhNqskE81Zwch75WXG1JhQ0qiavpSopqKiZN_icNpUQYmDw7WHWJU8N9-HCGmzMcPRtGqk8MlS1WJCJ8Lx5NbKbzyD3wICUbfivXogxf0ZiLEYTQJYpQd8xep9hn1kwbqCe6LBLwjmcq4FpBzhXUtj3a6bNNWWXBW61Fg6YtNmr4nbr0bzH0XbhQL_mo3b-ydMBQqRHe-OjtJwyiXITirL2AB1rGNrpI_Vj0MNXvaV68pW6EFB2AHac69BVOuW9-X07DRw97NwyMYIDRmmOm7GSeoMP7n06adXUmZPRtY8HHZ3Gb3uDWfKWXvEdA_5j41W-FaCqRgTF6HP8xoRFELIrZ5ZJI5oe5W4S_mwAVNp-WbKfSPa4kdXVLdN87ih_TCXRkzs7atj2ZAaM6ATDL_ASgcUGar0Q2AnlqcOHxV-q2JasNWkief0UK-ayHCYj9NOnEol0WvXh_FTvYCV-dFdHsYEqpIT2kLrnt3ZH1c");
+            client.DefaultRequestHeaders.Add("Authorization", Authkey);
 
             var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
 
@@ -63,7 +64,7 @@ namespace CSHttpClientSample
 
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer 6NjlcfnqRHdnmQj9KsNzlGsY5Z3phurR-Nz-MhCTY4VCQwJy9kNZXQkbgDShUNutGw_ngtEFXTPOO5z2RFlicE4ZI7kaciFjd83meY-zYF-tCUkuJxTm1Q7vfI0wmVs3XfWL7o_7q8jLqJFDUnaNri6S3_Hsymb-gy7SCpajaSqm5txfR1V7PjhTcfVjrfdhTeh3vdagy30VzqpSEn71-RvaVRB0F9WfzIIAk4ETcoKILhhC3Bi55uCvMpH3KXKErQLfjMRQO8i7iyvZiEp_zRmAhNqskE81Zwch75WXG1JhQ0qiavpSopqKiZN_icNpUQYmDw7WHWJU8N9-HCGmzMcPRtGqk8MlS1WJCJ8Lx5NbKbzyD3wICUbfivXogxf0ZiLEYTQJYpQd8xep9hn1kwbqCe6LBLwjmcq4FpBzhXUtj3a6bNNWWXBW61Fg6YtNmr4nbr0bzH0XbhQL_mo3b-ydMBQqRHe-OjtJwyiXITirL2AB1rGNrpI_Vj0MNXvaV68pW6EFB2AHac69BVOuW9-X07DRw97NwyMYIDRmmOm7GSeoMP7n06adXUmZPRtY8HHZ3Gb3uDWfKWXvEdA_5j41W-FaCqRgTF6HP8xoRFELIrZ5ZJI5oe5W4S_mwAVNp-WbKfSPa4kdXVLdN87ih_TCXRkzs7atj2ZAaM6ATDL_ASgcUGar0Q2AnlqcOHxV-q2JasNWkief0UK-ayHCYj9NOnEol0WvXh_FTvYCV-dFdHsYEqpIT2kLrnt3ZH1c");
+            client.DefaultRequestHeaders.Add("Authorization", Authkey);
 
             var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
 

@@ -24,3 +24,6 @@ C:\Users\Freddy\documents\visual studio 2013\Projects\API test 1\API test 1\bin\
 C:\Users\Freddy\documents\visual studio 2013\Projects\API test 1\API test 1\bin\Debug\Flurl.xml
 C:\Users\Freddy\documents\visual studio 2013\Projects\API test 1\API test 1\bin\Debug\Flurl.Http.pdb
 C:\Users\Freddy\documents\visual studio 2013\Projects\API test 1\API test 1\bin\Debug\Flurl.Http.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\API test 1.exe.config
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\obj\Debug\API test 1.exe
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\obj\Debug\API test 1.pdb
