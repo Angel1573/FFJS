@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -99,18 +100,25 @@ namespace CSHttpClientSample
                 password = splitted[1];
                 username = splitted[0];
 
-               string postBody = @"grant_type=password &username=" + Convert.ToString(username) + " &password=" + Convert.ToString(password);
+                string postBody = @"grant_type=password &username=" + Convert.ToString(username) + " &password=" + Convert.ToString(password);
 
-                Console.WriteLine(postBody);
+                var body = new List<KeyValuePair<string, string>>();
+                body.Add(new KeyValuePair<string, string>("grant_type", "password"));
+                body.Add(new KeyValuePair<string, string>("username", Convert.ToString(username)));
+                body.Add(new KeyValuePair<string, string>("password", Convert.ToString(password)));
 
-                using (var response = await client.PostAsync(tokenEndpoint, new StringContent(postBody, Encoding.UTF8, "application/x-www-form-urlencoded")))
+                Console.WriteLine(body);
+
+                //using (var response = await client.PostAsync(tokenEndpoint, new StringContent(postBody, Encoding.UTF8, "application/x-www-form-urlencoded")))
+                using (var response = await client.PostAsync(tokenEndpoint, new FormUrlEncodedContent(body)))
                 {
                     Console.WriteLine(response);
-                    System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\tokenresponse.txt", Convert.ToString(response));
+                    
                     if (response.IsSuccessStatusCode)
                     {
                         var jsonresult = JObject.Parse(await response.Content.ReadAsStringAsync());
-                        var token = (string)jsonresult["access_token"];                       
+                        var token = (string)jsonresult["access_token"];
+                        System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\tokenresponse.txt", Convert.ToString(token));
                     }
                 }
             }

@@ -27,3 +27,26 @@ C:\Users\Freddy\documents\visual studio 2013\Projects\API test 1\API test 1\bin\
 C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\API test 1.exe.config
 C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\obj\Debug\API test 1.exe
 C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\obj\Debug\API test 1.pdb
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\API test 1.exe
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\API test 1.pdb
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\EntityFramework.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\Flurl.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\Flurl.Http.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\RestSharp.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\System.Web.Http.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\EntityFramework.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\Flurl.pdb
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\Flurl.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\Flurl.Http.pdb
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\Flurl.Http.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\RestSharp.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\System.Web.Http.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\obj\Debug\API test 1.csprojResolveAssemblyReference.cache
