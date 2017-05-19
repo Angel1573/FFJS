@@ -38,7 +38,7 @@
             android:textStyle="bold"
             android:layout_gravity="left" />
         <ImageView
-            android:id="@+id/MailIcon"
+            android:id="@+id/MailIcon1"
             android:src="@drawable/mail_small"
             android:layout_gravity="center"
             android:layout_width="0dp"
@@ -51,7 +51,7 @@
             android:layout_marginLeft="10dp"
             android:paddingRight="10dp" />
         <ImageView
-            android:id="@+id/BelIcon"
+            android:id="@+id/BelIcon1"
             android:src="@drawable/phone_small"
             android:layout_gravity="center"
             android:layout_width="0dp"

@@ -6,9 +6,49 @@
     android:background="@android:color/background_light"
     android:minWidth="25px"
     android:minHeight="25px">
+    <ImageView
+        android:src="@drawable/Snelstart"
+        android:id="@+id/SnelstartLogo8"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="120dp"
+        android:paddingBottom="70dp"
+        android:layout_marginBottom="-70dp" />
+    <TextView
+        android:id="@+id/SelecteerContacten5"
+        android:text="Selecteer de contacten die u wilt toevoegen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="368DEB"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
+    <SearchView
+        android:id="@+id/LevZoeken4"
+        android:layout_width="match_parent"
+        android:backgroundColor="368DEB"
+        android:background="@drawable/Borders"
+        android:gravity="left"
+        android:layout_marginRight="100dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0" />
+    <ListView
+        android:id="@+id/LevInfoView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="368DEB"
+        android:textSize="10sp"
+        android:layout_marginBottom="300dp" />
     <Button
         android:text="Synchroniseer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="368DEB"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/Borders"
         android:id="@+id/Synchroniseer3" />
 </LinearLayout>
