@@ -11,7 +11,6 @@ using System.Web;
 using Newtonsoft.Json.Serialization; 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RestSharp;
 
 
 
@@ -27,7 +26,7 @@ namespace CSHttpClientSample
         {
             Decrypt(koppelingkey); 
             Token();
-            //Getrelaties();
+            Getrelaties();
             //Postrelaties();
             //Putrelaties();
             //Deleterelaties();
@@ -78,6 +77,7 @@ namespace CSHttpClientSample
 
                         //print de response naar een txt file zodat wij deze kunnen copy pasten
                         System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\tokenresponse.txt", Convert.ToString(token));
+                        Authkey = token;
 
                     }
                     return token;
@@ -90,7 +90,8 @@ namespace CSHttpClientSample
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
             string result = "";
-            Authkey = "Bearer ";
+            await Token();
+            Authkey = "Bearer " + Authkey;
 
             Console.WriteLine(Authkey);
                         
@@ -104,6 +105,7 @@ namespace CSHttpClientSample
             {
                 using (HttpContent content = response.Content)
                 {
+                    Console.WriteLine(response);
                     if (response.IsSuccessStatusCode)
                     {
                         result = await content.ReadAsStringAsync();
@@ -118,6 +120,31 @@ namespace CSHttpClientSample
         {
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
+            string result = "";
+            await Token();
+            Authkey = "Bearer " + Authkey;
+
+            Console.WriteLine(Authkey);
+            
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
+            client.DefaultRequestHeaders.Add("Authorization", Authkey);
+
+            var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
+
+            var body = new List<KeyValuePair<string, string>>();
+            body.Add(new KeyValuePair<string, string>("grant_type", "password"));
+        }
+
+        static async void Putrelaties()
+        {
+            var client = new HttpClient();
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+            string result = "";
+            await Token();
+            Authkey = "Bearer " + Authkey;
+
+            Console.WriteLine(Authkey);
 
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
@@ -125,14 +152,8 @@ namespace CSHttpClientSample
 
             var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
 
-             byte[] byteData = Encoding.UTF8.GetBytes("{body}");
-
-             using (var content = new ByteArrayContent(byteData))
-             {
-                 content.Headers.ContentType = new MediaTypeHeaderValue("< your content type, i.e. application/json >");
-                 var response = await client.PostAsync(uri, content);
-                 System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\Postresponse.txt", Convert.ToString(response));
-             }
+            var body = new List<KeyValuePair<string, string>>();
+            body.Add(new KeyValuePair<string, string>("grant_type", "password"));  
         }
       }
     }
