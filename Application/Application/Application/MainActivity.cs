@@ -49,7 +49,7 @@ namespace Application
             return decodedkey;
         }
 
-        static async Task<string> Token()
+        public static async Task<string> Token()
         {   // maak een nieuwe http client aan
             using (HttpClient client = new HttpClient())
             {

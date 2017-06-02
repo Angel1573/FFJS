@@ -22,11 +22,11 @@ namespace CSHttpClientSample
         public static string APIkey = "e8c56e54886f4005915425073f127183";
         public static string Authkey;
        
-        static void Main()
+       
+        public static void Main()
         {
-            Decrypt(koppelingkey); 
-            Token();
-            Getrelaties();
+            Decrypt(koppelingkey);
+            Splitklant();
             //Postrelaties();
             //Putrelaties();
             //Deleterelaties();
@@ -42,7 +42,7 @@ namespace CSHttpClientSample
             return decodedkey; 
         }
 
-        static async Task<string> Token()
+        public static async Task<string> Token()
         {   // maak een nieuwe http client aan
             using (HttpClient client = new HttpClient())
             {
@@ -85,7 +85,7 @@ namespace CSHttpClientSample
             }
         }
 
-        static async Task<string> Getrelaties()
+        public static async Task<string> Getrelaties()
         {
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
@@ -93,8 +93,7 @@ namespace CSHttpClientSample
             await Token();
             Authkey = "Bearer " + Authkey;
 
-            Console.WriteLine(Authkey);
-                        
+                               
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
             client.DefaultRequestHeaders.Add("Authorization", Authkey);
@@ -105,18 +104,19 @@ namespace CSHttpClientSample
             {
                 using (HttpContent content = response.Content)
                 {
-                    Console.WriteLine(response);
+                    Console.WriteLine("Response is:" + response);
                     if (response.IsSuccessStatusCode)
                     {
                         result = await content.ReadAsStringAsync();
                         System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\Getresponse.txt", Convert.ToString(result));
+
                     }
                     return result;
                 }                
             } 
         }
         
-        static async void Postrelaties()
+        public static async void Postrelaties()
         {
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
@@ -136,7 +136,7 @@ namespace CSHttpClientSample
             body.Add(new KeyValuePair<string, string>("grant_type", "password"));
         }
 
-        static async void Putrelaties()
+        public static async void Putrelaties()
         {
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
@@ -154,6 +154,13 @@ namespace CSHttpClientSample
 
             var body = new List<KeyValuePair<string, string>>();
             body.Add(new KeyValuePair<string, string>("grant_type", "password"));  
+        }
+
+        public static async void Splitklant()
+        {
+            var tosplit = Getrelaties().Result;
+
+            Console.WriteLine(tosplit.ToString());
         }
       }
     }

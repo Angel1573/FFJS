@@ -30,14 +30,14 @@ namespace Application
             SetContentView(Resource.Layout.Selectie);
             // Create your application here
             Getrelaties();
+
             var Klant = FindViewById<Button>(Resource.Id.Klant);
             Klant.Click += Klant_Click;
 
             var Leverancier = FindViewById<Button>(Resource.Id.Leverancier);
-            Leverancier.Click += Leverancier_Click;
-
-            
+            Leverancier.Click += Leverancier_Click;     
         }
+
         private void Klant_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(KlantActivity));
@@ -78,6 +78,16 @@ namespace Application
                     return result;
                 }
             }
+        }
+
+        public static async Task<string> Splitklant()
+        {
+            var tosplit = await Getrelaties();
+
+            JObject rss = JObject.Parse(tosplit);
+
+
+
         }
     }
 }
