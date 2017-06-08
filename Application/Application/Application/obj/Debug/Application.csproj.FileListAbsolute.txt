@@ -51,4 +51,6 @@ C:\Users\jesse\OneDrive\Documenten\Visual Studio 2017\Projects\Application\Appli
 C:\Users\jesse\OneDrive\Documenten\Visual Studio 2017\Projects\Application\Application\Application\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\jesse\OneDrive\Documenten\Visual Studio 2017\Projects\Application\Application\Application\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\jesse\OneDrive\Documenten\Visual Studio 2017\Projects\Application\Application\Application\obj\Debug\Application.dll.mdb
-C:\Users\jesse\OneDrive\Documenten\Visual Studio 2017\Projects\Application\Application\Application\bin\Debug\Application.dll.mdb
+C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\Application.csprojResolveAssemblyReference.cache
+C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\Application.dll
+C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\Application.pdb
