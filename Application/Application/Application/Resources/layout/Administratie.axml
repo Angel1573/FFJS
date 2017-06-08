@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Welkom"
-        android:textColor="368DEB"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:textSize="25sp"
         android:layout_marginBottom="10dp" />
@@ -24,9 +24,9 @@
         android:id="@+id/KiesAdministratieText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="Left"
+        android:layout_gravity="left"
         android:text="Kies uw administratie:"
-        android:textColor="368DEB"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_marginBottom="20dp" />
@@ -38,7 +38,7 @@
         android:layout_marginBottom="10dp" />
     <Button
         android:text="Verder"
-        android:textColor="368DEB"
+        android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_width="match_parent"
@@ -50,8 +50,8 @@
         android:text="Staat uw administratie niet in de lijst?"
         android:textColor="#0000FF"
         android:textSize="15sp"
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="Light"
         android:id="@+id/GeenAdministratie" />
 </LinearLayout>
