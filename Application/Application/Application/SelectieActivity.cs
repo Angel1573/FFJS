@@ -80,16 +80,12 @@ namespace Application
             }
         }
 
-        public static async Task<string> Splitklant()
-        {
-            var tosplit = await Getrelaties();
-
-            JObject rss = JObject.Parse(tosplit);
+      
 
 
 
         }
     }
-}
+
 
 
