@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Web;
@@ -21,8 +22,8 @@ namespace CSHttpClientSample
         public static string koppelingkey = "MEFBQVRaQnNIcHpFbkhyYVZlQW5xN0tuOGduelowRURsS2ZFa0p5TFhqZEUvUEF6OEdaOFV5OHc2ZlQzVzl5S3gyeG9FaS9mY2o4M09WUkFsd0FRbFFBdldwdGlhYjR1dHcra0kzQ1pWSy9rRnh5RkFDT2NzWngxRm5NeG9oMWFyajQ5Y28xVmJUYVRqbzRLWWREcUxGeXFuaTR2ZU9ic3FZWmlCdWk4UVZnUzlFQUxTSVk1NjFHYkh4RmVYQ3BkdC82dTZxZ2NiYTVlQzg3VTA4dmUrcEo2NFFOS1hkeUZWV3dmL1o5dGVFZHdyTnF0UU1VOTI0VkxaRE5LWkMwNjpvM1lxT2UwSHlwMW1EWDJGMDVBcVllWnp5ZmU4OXBwN0J3eEpLWVRrOU9xOEhuWGo1M0dkSEVTYWlhZnR5UkVQcFhFcUNmdDlWN3pqSWpSUmZlZzcyelF3eXJoekxmM3NXTVFnY1F3U2s1LzZNd3BHYWJrWkI0NlN3MTFySDBoWkZDZ0NtS0NBaXo4QThMZGs0bWVJK2d0bjJjVGhRS1VGS2RKd3NCSW9RTkVJSVB6RmJ5Y1pLNmtMcVNiTVdGNndodkQyTllVS3VlZEdDc0N6dUo5SEdMNEU2TVRXdkd4aU9kUXdreEppZTJsN1pDNWxmbDZxZjE0bk85NnVBTmtM";
         public static string APIkey = "e8c56e54886f4005915425073f127183";
         public static string Authkey;
-       
-       
+
+
         public static void Main()
         {
             Decrypt(koppelingkey);
@@ -39,7 +40,7 @@ namespace CSHttpClientSample
             //decrypt de koppelingkey van Base64 naar UTF8
             string decodedkey;
             decodedkey = Encoding.UTF8.GetString(Convert.FromBase64String(koppelingkey));
-            return decodedkey; 
+            return decodedkey;
         }
 
         public static async Task<string> Token()
@@ -93,7 +94,7 @@ namespace CSHttpClientSample
             await Token();
             Authkey = "Bearer " + Authkey;
 
-                               
+
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
             client.DefaultRequestHeaders.Add("Authorization", Authkey);
@@ -108,14 +109,13 @@ namespace CSHttpClientSample
                     if (response.IsSuccessStatusCode)
                     {
                         result = await content.ReadAsStringAsync();
-                        System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\Getresponse.txt", Convert.ToString(result));
-
+                        //System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\Getresponse.txt", Convert.ToString(result));
                     }
                     return result;
-                }                
-            } 
+                }
+            }
         }
-        
+
         public static async void Postrelaties()
         {
             var client = new HttpClient();
@@ -125,7 +125,7 @@ namespace CSHttpClientSample
             Authkey = "Bearer " + Authkey;
 
             Console.WriteLine(Authkey);
-            
+
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
             client.DefaultRequestHeaders.Add("Authorization", Authkey);
@@ -153,15 +153,27 @@ namespace CSHttpClientSample
             var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
 
             var body = new List<KeyValuePair<string, string>>();
-            body.Add(new KeyValuePair<string, string>("grant_type", "password"));  
+            body.Add(new KeyValuePair<string, string>("grant_type", "password"));
         }
 
         public static async void Splitklant()
         {
+            //waarom maken we geen loop die door de data heen loopt en dan een aantal velden die wij specificeren eruit halen. Als het goed is dan is namelijk alles wel vast qua data. 
+            //if name = name(*) 
+            // then put in listview
             var tosplit = Getrelaties().Result;
+            
+            JArray obj = JArray.Parse(tosplit);
 
-            Console.WriteLine(tosplit.ToString());
+            foreach (JObject item in obj.Children<JObject>())
+            {
+                var word = item.ToString();
+
+                if (word.Contains("Klant"))
+                {
+                    Console.WriteLine(item);
+                }
+            }
         }
-      }
     }
-   
+}
