@@ -28,9 +28,6 @@ namespace CSHttpClientSample
         {
             Decrypt(koppelingkey);
             Splitklant();
-            //Postrelaties();
-            //Putrelaties();
-            //Deleterelaties();
             Console.WriteLine("Hit ENTER to exit...");
             Console.ReadLine();
         }
@@ -91,7 +88,9 @@ namespace CSHttpClientSample
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
             string result = "";
+            //wacht tot token klaar is
             await Token();
+            //zet authkey om naar het goede format
             Authkey = "Bearer " + Authkey;
 
 
@@ -100,14 +99,17 @@ namespace CSHttpClientSample
             client.DefaultRequestHeaders.Add("Authorization", Authkey);
 
             var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
-
+           
+            //Get request
             using (var response = await client.GetAsync(uri))
             {
                 using (HttpContent content = response.Content)
                 {
                     Console.WriteLine("Response is:" + response);
+                    
                     if (response.IsSuccessStatusCode)
                     {
+                        //wacht op volledig respons
                         result = await content.ReadAsStringAsync();
                         //System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\Getresponse.txt", Convert.ToString(result));
                     }
@@ -115,63 +117,42 @@ namespace CSHttpClientSample
                 }
             }
         }
-
-        public static async void Postrelaties()
-        {
-            var client = new HttpClient();
-            var queryString = HttpUtility.ParseQueryString(string.Empty);
-            string result = "";
-            await Token();
-            Authkey = "Bearer " + Authkey;
-
-            Console.WriteLine(Authkey);
-
-            // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
-            client.DefaultRequestHeaders.Add("Authorization", Authkey);
-
-            var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
-
-            var body = new List<KeyValuePair<string, string>>();
-            body.Add(new KeyValuePair<string, string>("grant_type", "password"));
-        }
-
-        public static async void Putrelaties()
-        {
-            var client = new HttpClient();
-            var queryString = HttpUtility.ParseQueryString(string.Empty);
-            string result = "";
-            await Token();
-            Authkey = "Bearer " + Authkey;
-
-            Console.WriteLine(Authkey);
-
-            // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
-            client.DefaultRequestHeaders.Add("Authorization", Authkey);
-
-            var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
-
-            var body = new List<KeyValuePair<string, string>>();
-            body.Add(new KeyValuePair<string, string>("grant_type", "password"));
-        }
-
+         //waarom maken we geen loop die door de data heen loopt en dan een aantal velden die wij specificeren eruit halen. Als het goed is dan is namelijk alles wel vast qua data. 
+                    //if name = name(*) 
+                    // then put in listview
         public static async void Splitklant()
         {
-            //waarom maken we geen loop die door de data heen loopt en dan een aantal velden die wij specificeren eruit halen. Als het goed is dan is namelijk alles wel vast qua data. 
-            //if name = name(*) 
-            // then put in listview
+            //tosplit is de teruggave van de get
             var tosplit = Getrelaties().Result;
             
+            //parse de respons naar een JArray
             JArray obj = JArray.Parse(tosplit);
 
-            foreach (JObject item in obj.Children<JObject>())
+            foreach (JObject item in obj)
             {
                 var word = item.ToString();
 
                 if (word.Contains("Klant"))
                 {
-                    Console.WriteLine(item);
+                    try
+                    {   
+
+                        //var klant = obj["naam"]["telefoon"]["mobieleTelefoon"]["email"].Value<String>();
+
+                        //foreach (KeyValuePair<String, JToken> app in item)
+                        //{
+                        //    var key = app.Key;
+                        //    var naam = (String)app.Value[0]["naam"].ToString();
+                        //    var tnummer = (String)app.Value[0]["telefoon"].ToString();
+                        //    var mnummer = (String)app.Value[0]["mobieleTelefoon"].ToString();
+                        //    var email = (String)app.Value[0]["email"].ToString();
+                        //    Console.WriteLine(key + naam + tnummer + mnummer + email + "\n");
+                        //}   
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("error again:" + ex.ToString());
+                    } 
                 }
             }
         }
