@@ -116,7 +116,7 @@ namespace CSHttpClientSample
         }
 
 
-        //Dit moet de klantnaam, telefoonnummer, mobiel nummer en email tonen, per klant. er zitten op het moment 4 klanten in alst goed is.
+        //Dit moet de klantnaam, telefoonnummer, mobiel nummer en email tonen, per klant. Er zitten op het moment 4 klanten in en 3 leveranciers.
         //De insteek vanuit getrelaties is een JSON string met de velden: 
         // {"relatiesoort":["Klant"],"relatiecode":2,"naam":"Sybren","vestigingsAdres":{"contactpersoon":"Sybren","straat":"Rengerslaan 10","postcode":"8977DD","plaats":"Leeuwarden","land":{"id":"3378b4b4-36b2-4b70-a81b-cbf5cc5cd3ff","uri":"/landen/3378b4b4-36b2-4b70-a81b-cbf5cc5cd3ff"}},
         //"correspondentieAdres":{"contactpersoon":"Sybren","straat":"Rengerslaan 10","postcode":"8977DD","plaats":"Leeuwarden","land":{"id":"3378b4b4-36b2-4b70-a81b-cbf5cc5cd3ff","uri":"/landen/3378b4b4-36b2-4b70-a81b-cbf5cc5cd3ff"}},
@@ -131,34 +131,33 @@ namespace CSHttpClientSample
             var tosplit = Getrelaties().Result;
             
             //parse de respons naar een JArray
-            JArray obj = JArray.Parse(tosplit);
+            dynamic obj = JArray.Parse(tosplit);
+            JArray cust = JArray.Parse(tosplit);
 
-            foreach (JObject item in obj)
+            try
             {
-                var word = item.ToString();
-                //pak alleen de klanten
-                if (word.Contains("Klant"))
-                {
-                    try
-                    {   
-                        //var klant = obj["naam"]["telefoon"]["mobieleTelefoon"]["email"].Value<String>();
+                //var klant = cust.FirstOrDefault(x => x.Value<int>("Relatiecode") >= 0).Value<string>("naam");
 
-                        //foreach (KeyValuePair<String, JToken> app in item)
-                        //{
-                        //    var key = app.Key;
-                        //    var naam = (String)app.Value[0]["naam"].ToString();
-                        //    var tnummer = (String)app.Value[0]["telefoon"].ToString();
-                        //    var mnummer = (String)app.Value[0]["mobieleTelefoon"].ToString();
-                        //    var email = (String)app.Value[0]["email"].ToString();
-                        //    Console.WriteLine(key + naam + tnummer + mnummer + email + "\n");
-                        //}   
-                    }
-                    catch (Exception ex)
+                foreach (JObject item in obj)
+                {
+                    if (item.GetValue("relatiesoort").ToString().Contains ("Klant"))
                     {
-                        Console.WriteLine("error again:" + ex.ToString());
-                    } 
+                        string naam = item.GetValue("naam").ToString();
+                        string tnummer = item.GetValue("telefoon").ToString();
+                        string mnummer = item.GetValue("mobieleTelefoon").ToString();
+                        string email = item.GetValue("email").ToString();
+
+                        Console.WriteLine("naam = " + naam + " & tnummer = " + tnummer + " & mnummer = " +  mnummer +" & email = " +  email);
+                    }
+                    
                 }
+                                  
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("error again:" + ex.ToString());
+            } 
+                        
         }
     }
 }

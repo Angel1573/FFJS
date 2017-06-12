@@ -49,3 +49,4 @@ C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\System.Web.Http.x
 C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\bin\Debug\System.Web.Http.WebHost.xml
 C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\obj\Debug\API test 1.exe
 C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\obj\Debug\API test 1.pdb
+C:\Users\Freddy\Documents\FFJS\API test 1\API test 1\obj\Debug\API test 1.csprojResolveAssemblyReference.cache
