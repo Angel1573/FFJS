@@ -20,8 +20,7 @@ namespace CSHttpClientSample
         public static string koppelingkey = "MEFBQVRaQnNIcHpFbkhyYVZlQW5xN0tuOGduelowRURsS2ZFa0p5TFhqZEUvUEF6OEdaOFV5OHc2ZlQzVzl5S3gyeG9FaS9mY2o4M09WUkFsd0FRbFFBdldwdGlhYjR1dHcra0kzQ1pWSy9rRnh5RkFDT2NzWngxRm5NeG9oMWFyajQ5Y28xVmJUYVRqbzRLWWREcUxGeXFuaTR2ZU9ic3FZWmlCdWk4UVZnUzlFQUxTSVk1NjFHYkh4RmVYQ3BkdC82dTZxZ2NiYTVlQzg3VTA4dmUrcEo2NFFOS1hkeUZWV3dmL1o5dGVFZHdyTnF0UU1VOTI0VkxaRE5LWkMwNjpvM1lxT2UwSHlwMW1EWDJGMDVBcVllWnp5ZmU4OXBwN0J3eEpLWVRrOU9xOEhuWGo1M0dkSEVTYWlhZnR5UkVQcFhFcUNmdDlWN3pqSWpSUmZlZzcyelF3eXJoekxmM3NXTVFnY1F3U2s1LzZNd3BHYWJrWkI0NlN3MTFySDBoWkZDZ0NtS0NBaXo4QThMZGs0bWVJK2d0bjJjVGhRS1VGS2RKd3NCSW9RTkVJSVB6RmJ5Y1pLNmtMcVNiTVdGNndodkQyTllVS3VlZEdDc0N6dUo5SEdMNEU2TVRXdkd4aU9kUXdreEppZTJsN1pDNWxmbDZxZjE0bk85NnVBTmtM";
         public static string APIkey = "e8c56e54886f4005915425073f127183";
         public static string Authkey;
-
-
+        
         public static void Main()
         {
             Decrypt(koppelingkey);
@@ -115,9 +114,17 @@ namespace CSHttpClientSample
                 }
             }
         }
-         //waarom maken we geen loop die door de data heen loopt en dan een aantal velden die wij specificeren eruit halen. Als het goed is dan is namelijk alles wel vast qua data. 
-                    //if name = name(*) 
-                    // then put in listview
+
+
+        //Dit moet de klantnaam, telefoonnummer, mobiel nummer en email tonen, per klant. er zitten op het moment 4 klanten in alst goed is.
+        //De insteek vanuit getrelaties is een JSON string met de velden: 
+        // {"relatiesoort":["Klant"],"relatiecode":2,"naam":"Sybren","vestigingsAdres":{"contactpersoon":"Sybren","straat":"Rengerslaan 10","postcode":"8977DD","plaats":"Leeuwarden","land":{"id":"3378b4b4-36b2-4b70-a81b-cbf5cc5cd3ff","uri":"/landen/3378b4b4-36b2-4b70-a81b-cbf5cc5cd3ff"}},
+        //"correspondentieAdres":{"contactpersoon":"Sybren","straat":"Rengerslaan 10","postcode":"8977DD","plaats":"Leeuwarden","land":{"id":"3378b4b4-36b2-4b70-a81b-cbf5cc5cd3ff","uri":"/landen/3378b4b4-36b2-4b70-a81b-cbf5cc5cd3ff"}},
+        //"telefoon":"0612121212","mobieleTelefoon":null,"email":"vrie1517@student.nhl.nl","btwNummer":null,"factuurkorting":null,"krediettermijn":30,"bankieren":false,"nonactief":false,"kredietLimiet":null,"memo":"","kvkNummer":"00000000","websiteUrl":null,"aanmaningsoort":"Onderneming",
+        //"offerteEmailVersturen":{"shouldSend":false,"email":"vrie1517@student.nhl.nl","ccEmail":null},"bevestigingsEmailVersturen":{"shouldSend":false,"email":"vrie1517@student.nhl.nl","ccEmail":null},
+        //"factuurEmailVersturen":{"shouldSend":false,"email":"vrie1517@student.nhl.nl","ccEmail":null},"aanmaningEmailVersturen":{"shouldSend":false,"email":"vrie1517@student.nhl.nl","ccEmail":null},"ublBestandAlsBijlage":false,"iban":null,"bic":"",
+        //"incassoSoort":"Geen","factuurRelatie":null,"inkoopBoekingenUri":"/relaties/c8bc23e3-520e-4684-ba37-80a7ed5afe70/inkoopboekingen","verkoopBoekingenUri":"/relaties/c8bc23e3-520e-4684-ba37-80a7ed5afe70/verkoopboekingen","id":"c8bc23e3-520e-4684-ba37-80a7ed5afe70","uri":"/relaties/c8bc23e3-520e-4684-ba37-80a7ed5afe70"},
+
         public static async void Splitklant()
         {
             //tosplit is de teruggave van de get
@@ -133,8 +140,7 @@ namespace CSHttpClientSample
                 if (word.Contains("Klant"))
                 {
                     try
-                    {   //dit moet de klantnaam, telefoonnummer, mobiel nummer en email tonen. 
-
+                    {   
                         //var klant = obj["naam"]["telefoon"]["mobieleTelefoon"]["email"].Value<String>();
 
                         //foreach (KeyValuePair<String, JToken> app in item)
