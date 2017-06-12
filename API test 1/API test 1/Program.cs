@@ -13,8 +13,6 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-
-
 namespace CSHttpClientSample
 {
     static class Program
@@ -131,11 +129,11 @@ namespace CSHttpClientSample
             foreach (JObject item in obj)
             {
                 var word = item.ToString();
-
+                //pak alleen de klanten
                 if (word.Contains("Klant"))
                 {
                     try
-                    {   
+                    {   //dit moet de klantnaam, telefoonnummer, mobiel nummer en email tonen. 
 
                         //var klant = obj["naam"]["telefoon"]["mobieleTelefoon"]["email"].Value<String>();
 
