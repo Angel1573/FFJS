@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>1-6-2017 13:40:52</xs:documentation>
+    <xs:documentation>15-6-2017 13:01:12</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -232,18 +232,6 @@
             <xs:enumeration value="?android:attr/textEditSuggestionItemLayout" />
             <xs:enumeration value="?android:attr/windowActionBarFullscreenDecorLayout" />
           </xs:restriction>
-        </xs:simpleType>
-      </xs:union>
-    </xs:simpleType>
-  </xs:attribute>
-  <xs:attribute name="parentTag">
-    <xs:annotation>
-      <xs:documentation></xs:documentation>
-    </xs:annotation>
-    <xs:simpleType>
-      <xs:union memberTypes="xs:string">
-        <xs:simpleType>
-          <xs:restriction base="xs:string" />
         </xs:simpleType>
       </xs:union>
     </xs:simpleType>

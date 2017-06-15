@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Application.AdministratieActivity" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>AdministratieActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.GeluktActivity" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeluktActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.KlantActivity" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>KlantActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.KlantSnelstartActivity" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>KlantSnelstartActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.KlantTelefoonActivity" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KlantTelefoonActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.LeverancierActivity" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>LeverancierActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.LeverancierSnelstartActivity" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LeverancierSnelstartActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.LeverancierTelefoonActivity" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LeverancierTelefoonActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.MainActivity" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAQAAAAAAAAACAAAACQAAAAgAABAAA=</HashCode>
+      <FileName>MainActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.Resource" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application.SelectieActivity" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>SelectieActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

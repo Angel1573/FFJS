@@ -163,10 +163,7 @@ namespace CSHttpClientSample
             else
             {
                 Console.WriteLine("Tosplit is leeg. Zoek uit wat er mis is.");
-            }
-            
-
-           
+            }                      
         }
     }
 }
