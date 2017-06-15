@@ -63,15 +63,11 @@ namespace CSHttpClientSample
                 // de request zelf. 
                 using (var response = await client.PostAsync(tokenEndpoint, new FormUrlEncodedContent(body)))
                 {
-                    System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\request.txt", Convert.ToString(response));
-
                     if (response.IsSuccessStatusCode)
                     {   //bij succesvolle response, haal de access token op.
                         var jsonresult = JObject.Parse(await response.Content.ReadAsStringAsync());
                         token = (string)jsonresult["access_token"];
-
-                        //print de response naar een txt file zodat wij deze kunnen copy pasten
-                        System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\tokenresponse.txt", Convert.ToString(token));
+                                                             
                         Authkey = token;
 
                     }
@@ -108,7 +104,7 @@ namespace CSHttpClientSample
                     {
                         //wacht op volledig respons
                         result = await content.ReadAsStringAsync();
-                        //System.IO.File.WriteAllText(@"C:\Users\Freddy\Desktop\Minor Systeemontwikkeling\Response\Getresponse.txt", Convert.ToString(result));
+                       
                     }
                     return result;
                 }
@@ -129,35 +125,48 @@ namespace CSHttpClientSample
         {
             //tosplit is de teruggave van de get
             var tosplit = Getrelaties().Result;
-            
-            //parse de respons naar een JArray
-            dynamic obj = JArray.Parse(tosplit);
-            JArray cust = JArray.Parse(tosplit);
 
-            try
+            if (tosplit.Length >= 2)
             {
-                //var klant = cust.FirstOrDefault(x => x.Value<int>("Relatiecode") >= 0).Value<string>("naam");
+                //parse de respons naar een JArray
+                dynamic obj = JArray.Parse(tosplit);
 
-                foreach (JObject item in obj)
-                {
-                    if (item.GetValue("relatiesoort").ToString().Contains ("Klant"))
-                    {
-                        string naam = item.GetValue("naam").ToString();
-                        string tnummer = item.GetValue("telefoon").ToString();
-                        string mnummer = item.GetValue("mobieleTelefoon").ToString();
-                        string email = item.GetValue("email").ToString();
+                try
+                {   // kijk naar elk item in obj
+                    foreach (JObject item in obj)
+                    {   // check of het een klant of leverancier is
+                        if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
+                        {
+                            string knaam = item.GetValue("naam").ToString();
+                            string ktnummer = item.GetValue("telefoon").ToString();
+                            string kmnummer = item.GetValue("mobieleTelefoon").ToString();
+                            string kemail = item.GetValue("email").ToString();
 
-                        Console.WriteLine("naam = " + naam + " & tnummer = " + tnummer + " & mnummer = " +  mnummer +" & email = " +  email);
+                            Console.WriteLine("naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail);
+                        }
+                        else if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
+                        {
+                            string lnaam = item.GetValue("naam").ToString();
+                            string ltnummer = item.GetValue("telefoon").ToString();
+                            string lmnummer = item.GetValue("mobieleTelefoon").ToString();
+                            string lemail = item.GetValue("email").ToString();
+
+                            Console.WriteLine("naam = " + lnaam + " & tnummer = " + ltnummer + " & mnummer = " + lmnummer + " & email = " + lemail);
+                        }
                     }
-                    
                 }
-                                  
+                catch (Exception ex)
+                {
+                    Console.WriteLine("error again:" + ex.ToString());
+                }                         
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("error again:" + ex.ToString());
-            } 
-                        
+                Console.WriteLine("Tosplit is leeg. Zoek uit wat er mis is.");
+            }
+            
+
+           
         }
     }
 }
