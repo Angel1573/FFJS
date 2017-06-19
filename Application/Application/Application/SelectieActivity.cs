@@ -41,13 +41,13 @@ namespace Application
 
         private void Klant_Click(object sender, System.EventArgs e)
         {
-            Splitklant();
+            //Splitklant();
             StartActivity(typeof(KlantActivity));
         }
 
         private void Leverancier_Click(object sender, System.EventArgs e)
         {
-            Splitleverancier();
+            //Splitleverancier();
             StartActivity(typeof(LeverancierActivity));
         }
 
