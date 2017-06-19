@@ -7,6 +7,7 @@ using Android.Widget;
 using Xamarin.Forms;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -50,48 +51,10 @@ namespace Application
             StartActivity(typeof(LeverancierActivity));
         }
 
-        public static async Task<string> Getrelaties()
-        {
-            var client = new HttpClient();
-            var queryString = HttpUtility.ParseQueryString(string.Empty);
-            string result = "";
-            //wacht tot token klaar is
-            await AdministratieActivity.Token();
-            //zet authkey om naar het goede format
-            var Authkey = "Bearer " + AdministratieActivity.Authkey;
-            //APIkey uit administratiescherm halen
-            var APIkey = AdministratieActivity.APIkey;
-
-            Console.WriteLine(Authkey);
-
-            // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
-            client.DefaultRequestHeaders.Add("Authorization", Authkey);
-
-            var uri = "https://b2bapi.snelstart.nl/v1/relaties" + queryString;
-
-            //Get request
-            using (var response = await client.GetAsync(uri))
-            {
-                using (HttpContent content = response.Content)
-                {
-                    Console.WriteLine(response);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        //wacht op volledig respons
-                        result = await content.ReadAsStringAsync();                        
-                    }
-                    return result;
-                }
-            }
-        }
-
-        public static Task DisplayAlert(String title, String message, String cancel);
-
-        public static async void Splitklant()
+         public static async void Splitklant()
         {
             //tosplit is de teruggave van de get
-            var tosplit = Getrelaties().Result;
+            var tosplit = AdministratieActivity.Getrelaties().Result;
 
             if (tosplit.Length >= 2)
             {
@@ -115,7 +78,7 @@ namespace Application
                 }
                 catch (Exception ex)
                 {
-                    
+                    System.Diagnostics.Debug.WriteLine("Error: " + ex );
                 }                         
             }             
         }
@@ -123,7 +86,7 @@ namespace Application
         public static async void Splitleverancier()
         {
             //tosplit is de teruggave van de get
-            var tosplit = Getrelaties().Result;
+            var tosplit = AdministratieActivity.Getrelaties().Result;
 
             if (tosplit.Length >= 2)
             {
@@ -147,7 +110,7 @@ namespace Application
                 }
                 catch (Exception ex)
                 {
-                    DisplayAlert("error again:", ex.ToString(), "cancel");
+                    System.Diagnostics.Debug.WriteLine("Error: " + ex);
                 }
             }
         }

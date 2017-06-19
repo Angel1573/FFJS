@@ -103,8 +103,7 @@ namespace CSHttpClientSample
                     if (response.IsSuccessStatusCode)
                     {
                         //wacht op volledig respons
-                        result = await content.ReadAsStringAsync();
-                       
+                        result = await content.ReadAsStringAsync();                       
                     }
                     return result;
                 }
