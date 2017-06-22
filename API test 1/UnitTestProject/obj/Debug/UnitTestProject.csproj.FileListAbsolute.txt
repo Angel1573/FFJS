@@ -1,0 +1,17 @@
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\UnitTestProject.dll
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\UnitTestProject.pdb
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\API test 1.exe
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\API test 1.pdb
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\API test 1.exe.config
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\obj\Debug\UnitTestProject.csprojResolveAssemblyReference.cache
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\obj\Debug\UnitTestProject.dll
+C:\Users\julio\Documents\FFJS\API test 1\UnitTestProject\obj\Debug\UnitTestProject.pdb

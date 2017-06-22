@@ -19,6 +19,9 @@ using System.Web;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Android.Provider;
+using Xamarin.Contacts;
+
 
 
 namespace Application
@@ -72,6 +75,12 @@ namespace Application
                             string kmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string kemail = item.GetValue("email").ToString();
 
+                            var Book = new Xamarin.Contacts.AddressBook();
+                            var contact = new Contact();
+                            contact.FirstName = knaam;
+                            Book.save(contact);
+
+
                             Console.WriteLine("naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail);
                         }                        
                     }
@@ -108,12 +117,16 @@ namespace Application
                         }
                     }
                 }
+
+
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine("Error: " + ex);
                 }
+
             }
         }
+       
     }
 }
     
