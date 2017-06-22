@@ -70,14 +70,6 @@ namespace Application
             return sender.ToString();         
         }
 
-        public static string Decrypt(string koppelingkey)
-        {
-            //decrypt de koppelingkey van Base64 naar UTF8
-            string decodedkey;
-            decodedkey = Encoding.UTF8.GetString(Convert.FromBase64String(koppelingkey));
-            return decodedkey;
-        }
-
         public static async Task<string> Token()
         {   // maak een nieuwe http client aan
             Console.WriteLine("test");
@@ -90,7 +82,7 @@ namespace Application
                 //decodeer de koppeling key en splits hem naar username en password
                 string password;
                 string username;
-                string decoded = Decrypt(koppelingkey);
+                string decoded = Testcode.Decrypt(koppelingkey);
 
                 var splitted = decoded.Split(':');
                 password = splitted[1];
