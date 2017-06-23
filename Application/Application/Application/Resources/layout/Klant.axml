@@ -70,24 +70,20 @@
             android:gravity="right" />
     </LinearLayout>
     <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:background="@drawable/Borders"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView1" />
+        ItemsSource="{Binding Observcontacten}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ContactSelectableCell
+                    Name="{Binding Item.name}"
+                    Relatiecode="{Binding Item.rcode}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
     <LinearLayout
         android:id="@+id/KlantInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Naam_Mail_Bel_Plaats">
-        <ListView
-            android:id="@+id/KlantInfoView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="10sp"
-            android:layout_marginBottom="330dp" />
     </LinearLayout>
     <Button
         android:text="Opslaan in contacten"

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Xamarin.Forms;
+
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -21,12 +23,14 @@ namespace Application
             SetContentView(Resource.Layout.KlantSnelstart);
             // Create your application here
 
-            var Synchroniseer1 = FindViewById<Button>(Resource.Id.Synchroniseer1);
+            var Synchroniseer1 = FindViewById<Android.Widget.Button>(Resource.Id.Synchroniseer1);
             Synchroniseer1.Click += Synchroniseer1_Click;
         }
         private void Synchroniseer1_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(GeluktActivity));
         }
+
+       
     }
 }
