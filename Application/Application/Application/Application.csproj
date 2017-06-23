@@ -147,6 +147,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectieActivity.cs" />
+    <Compile Include="Testcode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,74 +6,81 @@
     android:minWidth="25px"
     android:background="@android:color/background_light"
     android:minHeight="25px">
-  <ImageView
-      android:src="@drawable/Snelstart"
-      android:id="@+id/SnelstartLogo7"
-      android:layout_width="150dp"
-      android:layout_height="100dp"
-      android:layout_gravity="center"
-      android:layout_marginRight="120dp"
-      android:paddingBottom="70dp"
-      android:layout_marginBottom="-70dp" />
-  <TextView
-      android:id="@+id/SelecteerContacten4"
-      android:text="Selecteer de contacten die u wilt toevoegen"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textColor="#000000"
-      android:textSize="26sp"
-      android:textStyle="bold"
-      android:gravity="center"
-      android:layout_marginTop="20dp"
-      android:layout_marginBottom="20dp" />
-  <SearchView
-      android:id="@+id/LevZoeken3"
-      android:layout_width="match_parent"
-      android:background="@drawable/Borders"
-      android:gravity="left"
-      android:layout_marginRight="100dp"
-      android:layout_height="wrap_content"
-      android:layout_weight="0" />
-  <LinearLayout
-      android:id="@+id/Lev_Plaats3"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/klantZoeken">
+    <ImageView
+        android:src="@drawable/Snelstart"
+        android:id="@+id/SnelstartLogo7"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="95dp"
+        android:paddingBottom="70dp"
+        android:layout_marginBottom="-70dp" />
     <TextView
-        android:id="@+id/LevNaam3"
-        android:text="Leverancier"
+        android:id="@+id/SelecteerContacten4"
+        android:text="Selecteer de contacten die u wilt toevoegen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp" />
+    <SearchView
+        android:id="@+id/LevZoeken3"
+        android:layout_width="match_parent"
+        android:background="@drawable/Borders"
+        android:gravity="left"
+        android:layout_marginRight="120dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginLeft="20dp" />
+    <LinearLayout
+        android:id="@+id/Lev_Plaats3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/klantZoeken">
+        <TextView
+            android:id="@+id/LevNaam3"
+            android:text="Leverancier"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:textColor="#000000"
+            android:textSize="19.5sp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp" />
+        <TextView
+            android:id="@+id/LevPlaats3"
+            android:text="Plaats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:textColor="#000000"
+            android:textSize="19.5sp"
+            android:textStyle="bold"
+            android:gravity="right"
+            android:layout_marginRight="20dp" />
+    </LinearLayout>
+    <ListView
+        android:id="@+id/LevView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3"
         android:textColor="#000000"
-        android:textSize="19.5sp"
-        android:textStyle="bold"
-        android:layout_gravity="left" />
-    <TextView
-        android:id="@+id/LevPlaats3"
-        android:text="Plaats"
-        android:layout_width="0dp"
+        android:textSize="10sp"
+        android:layout_marginBottom="300dp" />
+    <Button
+        android:text="Synchroniseer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3"
+        android:background="@drawable/Borders"
         android:textColor="#000000"
-        android:textSize="19.5sp"
         android:textStyle="bold"
-        android:gravity="right" />
-  </LinearLayout>
-  <ListView
-      android:id="@+id/LevView"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:textColor="#000000"
-      android:textSize="10sp"
-      android:layout_marginBottom="300dp" />
-  <Button
-      android:text="Synchroniseer"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="@drawable/Borders"
-      android:textColor="#000000"
-      android:textStyle="bold"
-      android:textSize="20sp"
-      android:id="@+id/Synchroniseer4" />
+        android:textSize="20sp"
+        android:id="@+id/Synchroniseer4"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp" />
 </LinearLayout>
