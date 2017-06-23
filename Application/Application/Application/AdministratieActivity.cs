@@ -19,14 +19,14 @@ using Newtonsoft.Json.Linq;
 namespace Application
 {
     [Activity(Label = "AdministratieActivity")]
-    public class AdministratieActivity : Activity
+        public class AdministratieActivity : Activity
     {
         //"MEFBQVRaQnNIcHpFbkhyYVZlQW5xN0tuOGduelowRURsS2ZFa0p5TFhqZEUvUEF6OEdaOFV5OHc2ZlQzVzl5S3gyeG9FaS9mY2o4M09WUkFsd0FRbFFBdldwdGlhYjR1dHcra0kzQ1pWSy9rRnh5RkFDT2NzWngxRm5NeG9oMWFyajQ5Y28xVmJUYVRqbzRLWWREcUxGeXFuaTR2ZU9ic3FZWmlCdWk4UVZnUzlFQUxTSVk1NjFHYkh4RmVYQ3BkdC82dTZxZ2NiYTVlQzg3VTA4dmUrcEo2NFFOS1hkeUZWV3dmL1o5dGVFZHdyTnF0UU1VOTI0VkxaRE5LWkMwNjpvM1lxT2UwSHlwMW1EWDJGMDVBcVllWnp5ZmU4OXBwN0J3eEpLWVRrOU9xOEhuWGo1M0dkSEVTYWlhZnR5UkVQcFhFcUNmdDlWN3pqSWpSUmZlZzcyelF3eXJoekxmM3NXTVFnY1F3U2s1LzZNd3BHYWJrWkI0NlN3MTFySDBoWkZDZ0NtS0NBaXo4QThMZGs0bWVJK2d0bjJjVGhRS1VGS2RKd3NCSW9RTkVJSVB6RmJ5Y1pLNmtMcVNiTVdGNndodkQyTllVS3VlZEdDc0N6dUo5SEdMNEU2TVRXdkd4aU9kUXdreEppZTJsN1pDNWxmbDZxZjE0bk85NnVBTmtM"
-        public static string koppelingkey = "MEFBQVRaQnNIcHpFbkhyYVZlQW5xN0tuOGduelowRURsS2ZFa0p5TFhqZEUvUEF6OEdaOFV5OHc2ZlQzVzl5S3gyeG9FaS9mY2o4M09WUkFsd0FRbFFBdldwdGlhYjR1dHcra0kzQ1pWSy9rRnh5RkFDT2NzWngxRm5NeG9oMWFyajQ5Y28xVmJUYVRqbzRLWWREcUxGeXFuaTR2ZU9ic3FZWmlCdWk4UVZnUzlFQUxTSVk1NjFHYkh4RmVYQ3BkdC82dTZxZ2NiYTVlQzg3VTA4dmUrcEo2NFFOS1hkeUZWV3dmL1o5dGVFZHdyTnF0UU1VOTI0VkxaRE5LWkMwNjpvM1lxT2UwSHlwMW1EWDJGMDVBcVllWnp5ZmU4OXBwN0J3eEpLWVRrOU9xOEhuWGo1M0dkSEVTYWlhZnR5UkVQcFhFcUNmdDlWN3pqSWpSUmZlZzcyelF3eXJoekxmM3NXTVFnY1F3U2s1LzZNd3BHYWJrWkI0NlN3MTFySDBoWkZDZ0NtS0NBaXo4QThMZGs0bWVJK2d0bjJjVGhRS1VGS2RKd3NCSW9RTkVJSVB6RmJ5Y1pLNmtMcVNiTVdGNndodkQyTllVS3VlZEdDc0N6dUo5SEdMNEU2TVRXdkd4aU9kUXdreEppZTJsN1pDNWxmbDZxZjE0bk85NnVBTmtM";
+        public static string koppelingkey;
         public static string APIkey = "e8c56e54886f4005915425073f127183";
         public static string Authkey;
-        //public static string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-        //public static string locatie = Path.Combine(path, "koppelingskey.txt");
+        public static string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+        public static string locatie = Path.Combine(path, "koppelingskey.txt");
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,34 +36,34 @@ namespace Application
             var Verder = FindViewById<Button>(Resource.Id.Verder);
             Verder.Click += Verder_Click;
         }
-        private void Verder_Click(object sender, System.EventArgs e)
+        private async void Verder_Click(object sender, System.EventArgs e)
         {
-            //if (System.IO.File.Exists(locatie))
-            //{
-            //    using (TextReader reader = File.OpenText(locatie))
-            //    {
-            //        koppelingkey = reader.ReadToEnd();
-            //    }
-            //}
+            if (System.IO.File.Exists(locatie))
+            {
+                using (TextReader reader = File.OpenText(locatie))
+                {
+                    koppelingkey = reader.ReadToEnd();
+                }
+            }
 
-            //else
-            //{
-            //    System.IO.File.WriteAllText(locatie, this.InvKoppelingkey(sender, e));
+            else
+            {
+                System.IO.File.WriteAllText(locatie, this.InvKoppelingkey(sender, e));
 
-            //    using (TextReader reader = File.OpenText(locatie))
-            //    {
-            //        koppelingkey = reader.ReadToEnd();
-            //    }
-            //}
-
+                using (TextReader reader = File.OpenText(locatie))
+                {
+                    koppelingkey = reader.ReadToEnd();
+                }
+            }
+                 
             Decrypt(koppelingkey);
-            Getrelaties();
+            await Getrelaties();
             StartActivity(typeof(SelectieActivity));
         }
 
-        public string InvKoppelingkey(object sender, EventArgs e)
+        public string InvKoppelingkey(object sender, EventArgs e)  
         {
-            return sender.ToString();
+            return sender.ToString();         
         }
 
         public static string Decrypt(string koppelingkey)
@@ -106,12 +106,12 @@ namespace Application
                         token = (string)jsonresult["access_token"];
 
                         //print de response naar een txt file zodat wij deze kunnen copy pasten
-
+                        
                         Authkey = token;
                     }
                     return token;
                 }
-            }
+            }    
         }
 
         public static async Task<string> Getrelaties()

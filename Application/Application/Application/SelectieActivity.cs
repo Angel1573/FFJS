@@ -16,10 +16,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Web;
-
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 
 namespace Application
 {
@@ -36,33 +36,30 @@ namespace Application
             Klant.Click += Klant_Click;
 
             var Leverancier = FindViewById<Android.Widget.Button>(Resource.Id.Leverancier);
-            Leverancier.Click += Leverancier_Click;
-
+            Leverancier.Click += Leverancier_Click;     
         }
 
         private void Klant_Click(object sender, System.EventArgs e)
         {
-            //Splitklant();
+            Splitklant();
             StartActivity(typeof(KlantActivity));
         }
 
         private void Leverancier_Click(object sender, System.EventArgs e)
         {
-            //Splitleverancier();
+            Splitleverancier();
             StartActivity(typeof(LeverancierActivity));
         }
 
-         public static List<Contacten> Splitklant()
+         public static async void Splitklant()
         {
             //tosplit is de teruggave van de get
             var tosplit = AdministratieActivity.Getrelaties().Result;
-            var klantenlijst = new List<Contacten>();
 
             if (tosplit.Length >= 2)
             {
                 //parse de respons naar een JArray
                 dynamic obj = JArray.Parse(tosplit);
-
 
                 try
                 {   // kijk naar elk item in obj
@@ -70,36 +67,31 @@ namespace Application
                     {   // check of het een klant of leverancier is
                         if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
                         {
-                            string kcode = item.GetValue("relatiecode").ToString();
                             string knaam = item.GetValue("naam").ToString();
                             string ktnummer = item.GetValue("telefoon").ToString();
                             string kmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string kemail = item.GetValue("email").ToString();
 
-                            klantenlijst.Add(new Contacten {Relatiecode = Convert.ToInt32(kcode), Naam = knaam, Telefoonnummer = Convert.ToInt32(ktnummer), MobielTelefoonnummer = Convert.ToInt32(kmnummer), Emailadres = kemail});
+                            Console.WriteLine("naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail);
                         }                        
                     }
                 }
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine("Error: " + ex );
-                }                
-                      
-            }   return klantenlijst;            
+                }                         
+            }             
         }
 
-        public static List<Contacten> Splitleverancier()
+        public static async void Splitleverancier()
         {
             //tosplit is de teruggave van de get
             var tosplit = AdministratieActivity.Getrelaties().Result;
-            var leverancierlijst = new List<Contacten>();
 
             if (tosplit.Length >= 2)
             {
                 //parse de respons naar een JArray
                 dynamic obj = JArray.Parse(tosplit);
-
-
 
                 try
                 {   // kijk naar elk item in obj
@@ -107,13 +99,12 @@ namespace Application
                     {   // check of het een klant of leverancier is
                         if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
                         {
-                            string lcode = item.GetValue("relatiecode").ToString();
                             string lnaam = item.GetValue("naam").ToString();
                             string ltnummer = item.GetValue("telefoon").ToString();
                             string lmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string lemail = item.GetValue("email").ToString();
 
-                            leverancierlijst.Add(new Contacten { Relatiecode = Convert.ToInt32(lcode), Naam = lnaam, Telefoonnummer = Convert.ToInt32(ltnummer), MobielTelefoonnummer = Convert.ToInt32(lmnummer), Emailadres = lemail });
+                            Console.WriteLine("naam = " + lnaam + " & tnummer = " + ltnummer + " & mnummer = " + lmnummer + " & email = " + lemail);
                         }
                     }
                 }
@@ -121,7 +112,7 @@ namespace Application
                 {
                     System.Diagnostics.Debug.WriteLine("Error: " + ex);
                 }
-            } return leverancierlijst;
+            }
         }
     }
 }

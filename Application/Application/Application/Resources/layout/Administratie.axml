@@ -30,6 +30,11 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_marginBottom="20dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/InvKoppelingkey"
+        android:background="@drawable/Borders" />
     <ListView
         android:id="@+id/ListViewAdministratie"
         android:layout_width="match_parent"

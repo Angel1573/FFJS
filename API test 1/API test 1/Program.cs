@@ -25,7 +25,6 @@ namespace CSHttpClientSample
         {
             Decrypt(koppelingkey);
             Splitklant();
-            //Putrelaties();
             Console.WriteLine("Hit ENTER to exit...");
             Console.ReadLine();
         }
@@ -99,7 +98,7 @@ namespace CSHttpClientSample
             {
                 using (HttpContent content = response.Content)
                 {
-                    Console.WriteLine("Get Response is:" + response);
+                    Console.WriteLine("Response is:" + response);
                     
                     if (response.IsSuccessStatusCode)
                     {
@@ -111,50 +110,6 @@ namespace CSHttpClientSample
             }
         }
 
-        public static async Task<string> Putrelaties()
-        {
-            var client = new HttpClient();
-            var queryString = HttpUtility.ParseQueryString(string.Empty);
-            string result = "";
-            //wacht tot token klaar is
-            await Token();
-            //zet authkey om naar het goede format
-            Authkey = "Bearer " + Authkey;
-
-
-            // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
-            client.DefaultRequestHeaders.Add("Authorization", Authkey);
-
-            var uri = "https://b2bapi.snelstart.nl/v1/relaties/{id}?" + queryString;
-
-            //Put request
-            var body = new List<KeyValuePair<string, string>>();
-            body.Add(new KeyValuePair<string, string>("relatiecode", "2"));
-            body.Add(new KeyValuePair<string, string>("naam", "Sybren"));
-            body.Add(new KeyValuePair<string, string>("Telefoon", "0581234567"));
-            body.Add(new KeyValuePair<string, string>("mobieleTelefoon", "0612345678"));
-            body.Add(new KeyValuePair<string, string>("email", "vrie1517@student.nhl.nl"));
-
-             using (var response = await client.PutAsync(uri, new FormUrlEncodedContent(body)))
-             {
-                 Console.WriteLine("WTF:" + response);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        Console.WriteLine("Put Response is:" + response);
-                        var jsonresult = JObject.Parse(await response.Content.ReadAsStringAsync());
-                        result = response.ToString();
-                    }
-                    else
-                    {
-                        Console.WriteLine("nopenopenope");
-                    }
-                }
-            
-         return result;
-            
-        }
-       
 
         //Dit moet de klantnaam, telefoonnummer, mobiel nummer en email tonen, per klant. Er zitten op het moment 4 klanten in en 3 leveranciers.
         //De insteek vanuit getrelaties is een JSON string met de velden: 
@@ -181,23 +136,21 @@ namespace CSHttpClientSample
                     {   // check of het een klant of leverancier is
                         if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
                         {
-                            string kcode = item.GetValue("relatiecode").ToString();
                             string knaam = item.GetValue("naam").ToString();
                             string ktnummer = item.GetValue("telefoon").ToString();
                             string kmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string kemail = item.GetValue("email").ToString();
 
-                            Console.WriteLine("relatiecode = " + kcode + " & naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail);
+                            Console.WriteLine("naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail);
                         }
                         else if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
                         {
-                            string lcode = item.GetValue("relatiecode").ToString();
                             string lnaam = item.GetValue("naam").ToString();
                             string ltnummer = item.GetValue("telefoon").ToString();
                             string lmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string lemail = item.GetValue("email").ToString();
 
-                            Console.WriteLine("relatiecode = " + lcode + " & naam = " + lnaam + " & tnummer = " + ltnummer + " & mnummer = " + lmnummer + " & email = " + lemail);
+                            Console.WriteLine("naam = " + lnaam + " & tnummer = " + ltnummer + " & mnummer = " + lmnummer + " & email = " + lemail);
                         }
                     }
                 }
