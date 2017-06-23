@@ -19,7 +19,8 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:textSize="25sp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp" />
     <TextView
         android:id="@+id/KiesAdministratieText"
         android:layout_width="match_parent"
@@ -29,12 +30,15 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/InvKoppelingkey"
-        android:background="@drawable/Borders" />
+        android:background="@drawable/Borders"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
     <ListView
         android:id="@+id/ListViewAdministratie"
         android:layout_width="match_parent"
@@ -50,7 +54,9 @@
         android:layout_height="50dp"
         android:background="@drawable/Borders"
         android:id="@+id/Verder"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
     <Button
         android:text="Staat uw administratie niet in de lijst?"
         android:textColor="#0000FF"
