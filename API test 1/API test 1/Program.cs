@@ -129,7 +129,7 @@ namespace CSHttpClientSample
             {
                 //parse de respons naar een JArray
                 dynamic obj = JArray.Parse(tosplit);
-
+                Console.WriteLine(obj);
                 try
                 {   // kijk naar elk item in obj
                     foreach (JObject item in obj)
@@ -140,8 +140,10 @@ namespace CSHttpClientSample
                             string ktnummer = item.GetValue("telefoon").ToString();
                             string kmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string kemail = item.GetValue("email").ToString();
+                            //string kstraat = item.GetValue("straat").ToString();
+                            //string kpostcode = item.GetValue("postcode").ToString();
 
-                            Console.WriteLine("naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail);
+                            Console.WriteLine("naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail /*+ " & straat = " + kstraat + " & postcode = " + kpostcode*/);
                         }
                         else if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
                         {
@@ -149,8 +151,10 @@ namespace CSHttpClientSample
                             string ltnummer = item.GetValue("telefoon").ToString();
                             string lmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string lemail = item.GetValue("email").ToString();
+                            //string kstraat = item.GetValue("straat").ToString();
+                            //string kpostcode = item.GetValue("postcode").ToString();
 
-                            Console.WriteLine("naam = " + lnaam + " & tnummer = " + ltnummer + " & mnummer = " + lmnummer + " & email = " + lemail);
+                            Console.WriteLine("naam = " + lnaam + " & tnummer = " + ltnummer + " & mnummer = " + lmnummer + " & email = " + lemail/* + " & straat = " + kstraat + " & postcode = " + kpostcode*/);
                         }
                     }
                 }
