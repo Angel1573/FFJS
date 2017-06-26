@@ -43,12 +43,11 @@ namespace Application
             var phone = "0649602794";
             var email = "App@app.nl";
             var lkw = "NHL";
-            var fromCountry = "Netherlands";
-            var toCountry = "Netherlands";
-            var contact_saved_message = "gelukt";
             var Straat = "nieuwelaan 55";
             var Postcode = "9642EP";
             var Stad = "Veendam";
+            var contact_saved_message = "gelukt";
+            var contact_not_saved_message = "niet gelukt";
 
             List<ContentProviderOperation> ops = new List<ContentProviderOperation>();
 
@@ -94,7 +93,7 @@ namespace Application
             builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, 0);
             builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
                               ContactsContract.CommonDataKinds.Organization.ContentItemType);
-            builder.WithValue(ContactsContract.CommonDataKinds.Organization.InterfaceConsts.Data, lkw + " (" + fromCountry + ">" + toCountry + ")");
+            builder.WithValue(ContactsContract.CommonDataKinds.Organization.InterfaceConsts.Data, lkw);
             builder.WithValue(ContactsContract.CommonDataKinds.Organization.InterfaceConsts.Type,
                               ContactsContract.CommonDataKinds.Organization.InterfaceConsts.TypeCustom);
             builder.WithValue(ContactsContract.CommonDataKinds.Organization.InterfaceConsts.Label, "Work");
@@ -119,11 +118,11 @@ namespace Application
             //{
             //    res = context.ContentResolver.ApplyBatch(ContactsContract.Authority, ops);
 
-            //    Toast.MakeText(context, context.Resources.GetString(Resource.String.contact_saved_message), ToastLength.Short).Show();
+            //    Toast.MakeText(context, context.Resources.GetString(contact_saved_message), ToastLength.Short).Show();
             //}
             //catch
             //{
-            //    Toast.MakeText(context, context.Resources.GetString(Resource.String.contact_not_saved_message), ToastLength.Long).Show();
+            //    Toast.MakeText(context, context.Resources.GetString(contact_not_saved_message), ToastLength.Long).Show();
             //}
 
 
