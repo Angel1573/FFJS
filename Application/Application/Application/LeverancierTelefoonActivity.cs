@@ -46,8 +46,8 @@ namespace Application
             var Straat = "nieuwelaan 55";
             var Postcode = "9642EP";
             var Stad = "Veendam";
-            var contact_saved_message = "gelukt";
-            var contact_not_saved_message = "niet gelukt";
+            //var contact_saved_message = "gelukt";
+            //var contact_not_saved_message = "niet gelukt";
 
             List<ContentProviderOperation> ops = new List<ContentProviderOperation>();
 
