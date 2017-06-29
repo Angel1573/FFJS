@@ -20,11 +20,31 @@ namespace Application
     [Activity(Label = "KlantTelefoonActivity")]
     public class KlantTelefoonActivity : Activity
     {
+<<<<<<< HEAD
+=======
+        List<string> ListData;
+        ListView dataListView;
+
+>>>>>>> 6eeff6c28f11a5ff51fc6ddfc5b612adb1750777
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            ListData = new List<string>();
             SetContentView(Resource.Layout.KlantTelefoon);
             // Create your application here
+<<<<<<< HEAD
+            ListData.Add("Jesse");
+            ListData.Add("Freddy");
+            ListData.Add("Frank");
+
+            dataListView = FindViewById<ListView>(Resource.Id.KlantInfoView2);
+
+            ArrayAdapter<string> listAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, ListData);
+
+            dataListView.Adapter = listAdapter;
+
+=======
+>>>>>>> 6b545e7aa8d5464f77ef82f547c4f1d0b2ea249d
 
             var Synchroniseer2 = FindViewById<Button>(Resource.Id.Synchroniseer2);
             Synchroniseer2.Click += Synchroniseer2_Click;

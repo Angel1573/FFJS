@@ -89,8 +89,7 @@
         android:layout_marginBottom="10dp"
         android:id="@+id/OpslaanContacten1"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="300dp" />
+        android:layout_marginLeft="20dp" />
     <Button
         android:text="Toevoegen vanuit contacten"
         android:textColor="#000000"
