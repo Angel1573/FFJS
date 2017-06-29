@@ -143,21 +143,7 @@ namespace CSHttpClientSample
                             string ktnummer = item.GetValue("telefoon").ToString();
                             string kmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string kemail = item.GetValue("email").ToString();
-                            string kvestigingsadres = item.GetValue("vestigingsAdres").ToString();
-
-                            dynamic kv = JsonConvert.SerializeObject(kvestigingsadres);
-
-                            dynamic kvi = JArray.Parse(kv);
-
-                            foreach (JObject v in kvi)
-                            {
-                                string contactpersoon = v.GetValue("contactpersoon").ToString();
-                                string straat = v.GetValue("straat").ToString();
-                                string postcode = v.GetValue("postcode").ToString();
-                                string plaats = v.GetValue("plaats").ToString();
-
-                                Console.WriteLine(contactpersoon + " " + straat + " " + postcode + " " + plaats);
-                            }
+                           
 
                             klantenlijst.Add(new API_test_1.Contacten { Relatiecode = kcode, Naam = knaam, Telefoonnummer = ktnummer, MobielTelefoonnummer = kmnummer, Emailadres = kemail });
                                 

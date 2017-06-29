@@ -20,8 +20,6 @@ namespace Application
     [Activity(Label = "KlantTelefoonActivity")]
     public class KlantTelefoonActivity : Activity
     {
- 
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,16 +38,15 @@ namespace Application
             StartActivity(typeof(GeluktActivity));
         }
 
-        public void Newcontacts()
+        public async void Newcontacts()
         {
-            var tosplit = AdministratieActivity.Getrelaties().Result;
-            List<ContentProviderOperation> ops = new List<ContentProviderOperation>();
-           
+            var tosplit = await AdministratieActivity.Getrelaties();
+            
             string firstName;
             string phone;
             string mobilephone;
             string email; 
-            string lkw;
+            //string lkw;
             string relatiesoort;
             //string lastName;
             
@@ -71,14 +68,13 @@ namespace Application
                     if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
                     {   
                         relatiesoort = item.GetValue("relatiesoort").ToString();
-                        string kcode = item.GetValue("relatiecode").ToString();
+                        //string kcode = item.GetValue("relatiecode").ToString();
                         firstName = item.GetValue("naam").ToString();
                         phone = item.GetValue("telefoon").ToString();
                         mobilephone = item.GetValue("mobieleTelefoon").ToString();
                         email = item.GetValue("email").ToString();
 
-
-
+                        List<ContentProviderOperation> ops = new List<ContentProviderOperation>();
 
                         ContentProviderOperation.Builder builder =
                             ContentProviderOperation.NewInsert(ContactsContract.RawContacts.ContentUri);
@@ -118,6 +114,10 @@ namespace Application
                         builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, "Werk");
                         builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, relatiesoort);
                         ops.Add(builder.Build());
+
+                        ContentProviderResult[] res;
+
+                        res = ContentResolver.ApplyBatch(ContactsContract.Authority, ops);
                     }
                 }
             }
@@ -146,9 +146,7 @@ namespace Application
             #endregion
 
             //Contact toevoegen
-            ContentProviderResult[] res;
 
-            res = ContentResolver.ApplyBatch(ContactsContract.Authority, ops);
         }
 
     }

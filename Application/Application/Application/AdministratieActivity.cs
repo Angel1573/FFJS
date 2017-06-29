@@ -46,7 +46,6 @@ namespace Application
                     koppelingkey = reader.ReadToEnd();
                 }
             }
-
             else
             {
                 System.IO.File.WriteAllText(locatie, this.InvKoppelingkey(sender, e));
@@ -55,8 +54,7 @@ namespace Application
                 {
                     koppelingkey = reader.ReadToEnd();s
                 }
-            }
-                 */
+            }  */
 
             Decrypt(koppelingkey);
             await Getrelaties();
