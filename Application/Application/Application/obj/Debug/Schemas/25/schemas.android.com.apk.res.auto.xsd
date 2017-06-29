@@ -2,7 +2,15 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
+<<<<<<< HEAD
     <xs:documentation>29-6-2017 15:48:35</xs:documentation>
+=======
+<<<<<<< HEAD
+    <xs:documentation>29-6-2017 15:16:08</xs:documentation>
+=======
+    <xs:documentation>29-6-2017 14:56:24</xs:documentation>
+>>>>>>> f64a3e1d4bb1bdb00c02bff8329ead07064b55d3
+>>>>>>> ae88a82f6d8fdc7076afb9094227c16212f16a2a
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>

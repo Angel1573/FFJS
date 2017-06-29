@@ -5,7 +5,15 @@
   <xs:import schemaLocation="schemas.android.com.tools.xsd" namespace="http://schemas.android.com/tools" />
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
+<<<<<<< HEAD
     <xs:documentation>29-6-2017 15:48:35</xs:documentation>
+=======
+<<<<<<< HEAD
+    <xs:documentation>29-6-2017 15:16:08</xs:documentation>
+=======
+    <xs:documentation>29-6-2017 14:56:24</xs:documentation>
+>>>>>>> f64a3e1d4bb1bdb00c02bff8329ead07064b55d3
+>>>>>>> ae88a82f6d8fdc7076afb9094227c16212f16a2a
   </xs:annotation>
   <xs:group name="any-view">
     <xs:choice>
@@ -82,6 +90,7 @@
       <xs:element ref="RadioGroup" />
       <xs:element ref="TextSwitcher" />
       <xs:element ref="fragment" />
+<<<<<<< HEAD
       <xs:element ref="com.xamarin.forms.platform.android.FormsViewGroup" />
       <xs:element ref="android.support.v7.view.menu.ExpandedMenuView" />
       <xs:element ref="android.support.v7.view.menu.ListMenuItemView" />
@@ -145,7 +154,13 @@
       <xs:element ref="android.support.v4.view.PagerTitleStrip" />
       <xs:element ref="android.support.v4.view.PagerTabStrip" />
       <xs:element ref="android.support.v4.app.FragmentTabHost" />
+=======
+<<<<<<< HEAD
+      <xs:element ref="include" />
+=======
+>>>>>>> ae88a82f6d8fdc7076afb9094227c16212f16a2a
       <xs:element ref="merge" />
+>>>>>>> f64a3e1d4bb1bdb00c02bff8329ead07064b55d3
     </xs:choice>
   </xs:group>
   <xs:element name="CheckedTextView" type="CheckedTextView">
@@ -1464,6 +1479,7 @@
     <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="com.xamarin.forms.platform.android.FormsViewGroup" type="com.xamarin.forms.platform.android.FormsViewGroup">
     <xs:annotation>
       <xs:documentation>Runtime Type: Xamarin.Forms.Platform.Android.FormsViewGroup</xs:documentation>
@@ -2266,6 +2282,22 @@
       <xs:extension base="TabHost" />
     </xs:complexContent>
   </xs:complexType>
+=======
+<<<<<<< HEAD
+  <xs:element name="include" type="include">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: include</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="include">
+    <xs:attribute ref="android:id" />
+    <xs:attribute ref="android:visibility" />
+    <xs:attribute ref="android:layout_width" />
+    <xs:attribute ref="android:layout_height" />
+    <xs:attribute ref="android:style" />
+    <xs:attribute ref="android:layout" />
+=======
+>>>>>>> ae88a82f6d8fdc7076afb9094227c16212f16a2a
   <xs:element name="merge" type="merge">
     <xs:annotation>
       <xs:documentation>Runtime Type: merge</xs:documentation>
@@ -2278,5 +2310,6 @@
         <xs:attribute ref="android:style" />
       </xs:extension>
     </xs:complexContent>
+>>>>>>> f64a3e1d4bb1bdb00c02bff8329ead07064b55d3
   </xs:complexType>
 </xs:schema>
