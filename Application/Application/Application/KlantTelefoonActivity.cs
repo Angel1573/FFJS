@@ -18,15 +18,25 @@ namespace Application
     [Activity(Label = "KlantTelefoonActivity")]
     public class KlantTelefoonActivity : Activity
     {
- 
+        List<string> ListData;
+        ListView dataListView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            ListData = new List<string>();
             SetContentView(Resource.Layout.KlantTelefoon);
             // Create your application here
-      
-        
+            ListData.Add("Jesse");
+            ListData.Add("Freddy");
+            ListData.Add("Frank");
+
+            dataListView = FindViewById<ListView>(Resource.Id.KlantInfoView2);
+
+            ArrayAdapter<string> listAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, ListData);
+
+            dataListView.Adapter = listAdapter;
+
 
             var Synchroniseer2 = FindViewById<Button>(Resource.Id.Synchroniseer2);
             Synchroniseer2.Click += Synchroniseer2_Click;
