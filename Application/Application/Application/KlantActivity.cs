@@ -15,11 +15,23 @@ namespace Application
     [Activity(Label = "KlantActivity")]
     public class KlantActivity : Activity
     {
+        private List<Person> mItem;
+        private ListView MListView;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Klant);
             // Create your application here
+            SetContentView(Resource.Layout.Main);
+            MListView = FindViewById<ListView>(Resource.Id.MyListView);
+
+            mItem = new List<Person>();
+            mItem.Add(new Person() { txtname = "1", txtnaam = "Hindrik", txtAdress = "Downstreet 21", txtTel = "0659584743" });
+            mItem.Add(new Person() { txtname = "2", txtnaam = "Frank", txtAdress = "geenidee1", txtTel = "0659586743" });
+            mItem.Add(new Person() { txtname = "3", txtnaam = "jesse", txtAdress = "rijleskaay", txtTel = "0654584743" });
+            MylistViewAdapter adapter = new MylistViewAdapter(this, mItem);
+            MListView.Adapter = adapter;
 
             var OpslaanContacten1 = FindViewById<Button>(Resource.Id.OpslaanContacten1);
             OpslaanContacten1.Click += OpslaanContacten1_Click;
