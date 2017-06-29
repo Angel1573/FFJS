@@ -5,7 +5,11 @@
   <xs:import schemaLocation="schemas.android.com.tools.xsd" namespace="http://schemas.android.com/tools" />
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
+<<<<<<< HEAD
     <xs:documentation>29-6-2017 15:16:08</xs:documentation>
+=======
+    <xs:documentation>29-6-2017 14:56:24</xs:documentation>
+>>>>>>> f64a3e1d4bb1bdb00c02bff8329ead07064b55d3
   </xs:annotation>
   <xs:group name="any-view">
     <xs:choice>
@@ -82,7 +86,11 @@
       <xs:element ref="RadioGroup" />
       <xs:element ref="TextSwitcher" />
       <xs:element ref="fragment" />
+<<<<<<< HEAD
       <xs:element ref="include" />
+=======
+      <xs:element ref="merge" />
+>>>>>>> f64a3e1d4bb1bdb00c02bff8329ead07064b55d3
     </xs:choice>
   </xs:group>
   <xs:element name="CheckedTextView" type="CheckedTextView">
@@ -1401,6 +1409,7 @@
     <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="include" type="include">
     <xs:annotation>
       <xs:documentation>Runtime Type: include</xs:documentation>
@@ -1413,5 +1422,19 @@
     <xs:attribute ref="android:layout_height" />
     <xs:attribute ref="android:style" />
     <xs:attribute ref="android:layout" />
+=======
+  <xs:element name="merge" type="merge">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: merge</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="merge">
+    <xs:complexContent mixed="false">
+      <xs:extension base="java.lang.Object">
+        <xs:attribute ref="tools:parentTag" />
+        <xs:attribute ref="android:style" />
+      </xs:extension>
+    </xs:complexContent>
+>>>>>>> f64a3e1d4bb1bdb00c02bff8329ead07064b55d3
   </xs:complexType>
 </xs:schema>
