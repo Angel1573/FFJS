@@ -19,8 +19,6 @@ namespace Application
     [Activity(Label = "Application", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);

@@ -65,9 +65,7 @@ namespace Application
                 //parse de respons naar een JArray
                 dynamic obj = JArray.Parse(tosplit);
 
-
-                try
-                {   // kijk naar elk item in obj
+                    // kijk naar elk item in obj
                     foreach (JObject item in obj)
                     {   // check of het een klant of leverancier is
                         if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
@@ -78,16 +76,11 @@ namespace Application
                             string kmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string kemail = item.GetValue("email").ToString();
 
-                            klantenlijst.Add(new Contacten { Relatiecode = Convert.ToInt32(kcode), Naam = knaam, Telefoonnummer = Convert.ToInt32(ktnummer), MobielTelefoonnummer = Convert.ToInt32(kmnummer), Emailadres = kemail });
+                            //klantenlijst.Add(new Contacten { Relatiecode = kcode, Naam = knaam, Telefoonnummer = ktnummer, MobielTelefoonnummer = kmnummer, Emailadres = kemail });
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine("Error: " + ex);
-                }
-
-            } return klantenlijst;
+            return klantenlijst;
         }
 
         public static List<Contacten> Splitleverancier()
@@ -101,8 +94,6 @@ namespace Application
                 //parse de respons naar een JArray
                 dynamic obj = JArray.Parse(tosplit);
 
-
-
                 try
                 {   // kijk naar elk item in obj
                     foreach (JObject item in obj)
@@ -115,7 +106,7 @@ namespace Application
                             string lmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string lemail = item.GetValue("email").ToString();
 
-                            leverancierlijst.Add(new Contacten { Relatiecode = Convert.ToInt32(lcode), Naam = lnaam, Telefoonnummer = Convert.ToInt32(ltnummer), MobielTelefoonnummer = Convert.ToInt32(lmnummer), Emailadres = lemail });
+                            leverancierlijst.Add(new Contacten { Relatiecode = lcode, Naam = lnaam, Telefoonnummer = ltnummer, MobielTelefoonnummer = lmnummer, Emailadres = lemail });
                         }
                     }
                 }
