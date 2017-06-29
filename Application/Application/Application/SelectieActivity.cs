@@ -44,13 +44,11 @@ namespace Application
 
         private void Klant_Click(object sender, System.EventArgs e)
         {
-            Splitklant();
             StartActivity(typeof(KlantActivity));
         }
 
         private void Leverancier_Click(object sender, System.EventArgs e)
         {
-            Splitleverancier();
             StartActivity(typeof(LeverancierActivity));
         }
 
@@ -74,7 +72,7 @@ namespace Application
                             string knaam = item.GetValue("naam").ToString();
                             string ktnummer = item.GetValue("telefoon").ToString();
                             string kmnummer = item.GetValue("mobieleTelefoon").ToString();
-                            string kemail = item.GetValue("email").ToString();
+                            string kemail = item.GetValue("email").ToString();                     
 
                             //klantenlijst.Add(new Contacten { Relatiecode = kcode, Naam = knaam, Telefoonnummer = ktnummer, MobielTelefoonnummer = kmnummer, Emailadres = kemail });
                         }
@@ -94,8 +92,7 @@ namespace Application
                 //parse de respons naar een JArray
                 dynamic obj = JArray.Parse(tosplit);
 
-                try
-                {   // kijk naar elk item in obj
+                    // kijk naar elk item in obj
                     foreach (JObject item in obj)
                     {   // check of het een klant of leverancier is
                         if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
@@ -106,14 +103,9 @@ namespace Application
                             string lmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string lemail = item.GetValue("email").ToString();
 
-                            leverancierlijst.Add(new Contacten { Relatiecode = lcode, Naam = lnaam, Telefoonnummer = ltnummer, MobielTelefoonnummer = lmnummer, Emailadres = lemail });
+                            //leverancierlijst.Add(new Contacten { Relatiecode = lcode, Naam = lnaam, Telefoonnummer = ltnummer, MobielTelefoonnummer = lmnummer, Emailadres = lemail });
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine("Error: " + ex);
-                }
             } return leverancierlijst;
         }
     }

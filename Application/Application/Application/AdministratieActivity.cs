@@ -60,9 +60,7 @@ namespace Application
 
             Decrypt(koppelingkey);
             await Getrelaties();
-            StartActivity(typeof(SelectieActivity));
-         
-            
+            StartActivity(typeof(SelectieActivity));    
         }
 
         public string InvKoppelingkey(object sender, EventArgs e)  
@@ -80,7 +78,6 @@ namespace Application
 
         public static async Task<string> Token()
         {   // maak een nieuwe http client aan
-            Console.WriteLine("test");
             using (HttpClient client = new HttpClient())
             {
                 // locatie van de authenticatie server
