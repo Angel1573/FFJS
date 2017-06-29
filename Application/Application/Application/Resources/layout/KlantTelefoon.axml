@@ -65,10 +65,10 @@
             android:gravity="right"
             android:layout_marginRight="20dp" />
     </LinearLayout>
-    <ListView
+    <!--<ListView
         android:id="@+id/KlantInfoView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" />-->
     <Button
         android:text="Synchroniseer"
         android:layout_width="match_parent"
