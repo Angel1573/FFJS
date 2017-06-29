@@ -136,6 +136,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdministratieActivity.cs" />
+    <Compile Include="Checkbox.cs" />
+    <Compile Include="Contacten.cs" />
+    <Compile Include="ContactSelectableCell.cs" />
+    <Compile Include="ContactViewModel.cs" />
     <Compile Include="GeluktActivity.cs" />
     <Compile Include="KlantActivity.cs" />
     <Compile Include="KlantSnelstartActivity.cs" />
@@ -144,13 +148,18 @@
     <Compile Include="LeverancierSnelstartActivity.cs" />
     <Compile Include="LeverancierTelefoonActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectableItemWrapper.cs" />
     <Compile Include="SelectieActivity.cs" />
     <Compile Include="Testcode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Application.csproj.bak" />
     <None Include="ClassDiagram1.cd" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
@@ -211,6 +220,13 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\phone_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Application.dll" />
+    <Content Include="bin\Debug\Application.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

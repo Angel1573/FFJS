@@ -10,17 +10,23 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Provider;
+using Android;
+
 
 namespace Application
 {
     [Activity(Label = "KlantTelefoonActivity")]
     public class KlantTelefoonActivity : Activity
     {
+ 
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.KlantTelefoon);
             // Create your application here
+      
+        
 
             var Synchroniseer2 = FindViewById<Button>(Resource.Id.Synchroniseer2);
             Synchroniseer2.Click += Synchroniseer2_Click;
@@ -39,15 +45,15 @@ namespace Application
         {
 
             var lastName = "Test";
-            var firstName = "Wypke";
-            var phone = "0649602794";
+            var firstName = "Frank";
+            var phone = "0649602793";
             var email = "App@app.nl";
             var lkw = "NHL";
             var Straat = "nieuwelaan 55";
             var Postcode = "9642EP";
             var Stad = "Veendam";
-            var contact_saved_message = "gelukt";
-            var contact_not_saved_message = "niet gelukt";
+            //var contact_saved_message = "gelukt";
+            //var contact_not_saved_message = "niet gelukt";
 
             List<ContentProviderOperation> ops = new List<ContentProviderOperation>();
 
@@ -74,7 +80,7 @@ namespace Application
             builder.WithValue(ContactsContract.CommonDataKinds.Phone.Number, phone);
             builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Type,
                               ContactsContract.CommonDataKinds.Phone.InterfaceConsts.TypeCustom);
-            builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Label, "Work");
+            builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Label, "Werk");
             ops.Add(builder.Build());
 
             //Email
@@ -85,7 +91,7 @@ namespace Application
             builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Data, email);
             builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Type,
                               ContactsContract.CommonDataKinds.Email.InterfaceConsts.TypeCustom);
-            builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, "Work");
+            builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, "Werk");
             ops.Add(builder.Build());
 
             //Bedrijf
@@ -96,7 +102,7 @@ namespace Application
             builder.WithValue(ContactsContract.CommonDataKinds.Organization.InterfaceConsts.Data, lkw);
             builder.WithValue(ContactsContract.CommonDataKinds.Organization.InterfaceConsts.Type,
                               ContactsContract.CommonDataKinds.Organization.InterfaceConsts.TypeCustom);
-            builder.WithValue(ContactsContract.CommonDataKinds.Organization.InterfaceConsts.Label, "Work");
+            builder.WithValue(ContactsContract.CommonDataKinds.Organization.InterfaceConsts.Label, "Werk");
             ops.Add(builder.Build());
 
             //Adres

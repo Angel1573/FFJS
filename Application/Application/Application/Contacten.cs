@@ -14,10 +14,10 @@ namespace Application
 {
     public class Contacten
     {
-        public int Relatiecode { get; set; }
+        public string Relatiecode { get; set; }
         public string Naam { get; set; }
-        public int Telefoonnummer { get; set; }
-        public int MobielTelefoonnummer { get; set; }
+        public string Telefoonnummer { get; set; }
+        public string MobielTelefoonnummer { get; set; }
         public string Emailadres { get; set; }
     }
 }

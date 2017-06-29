@@ -44,58 +44,50 @@ namespace Application
 
         private void Klant_Click(object sender, System.EventArgs e)
         {
-            //Splitklant();
+            Splitklant();
             StartActivity(typeof(KlantActivity));
         }
 
         private void Leverancier_Click(object sender, System.EventArgs e)
         {
-            //Splitleverancier();
+            Splitleverancier();
             StartActivity(typeof(LeverancierActivity));
         }
 
-        // public static async void Splitklant()
-        //{
-        //    //tosplit is de teruggave van de get
-        //    var tosplit = AdministratieActivity.Getrelaties().Result;
-
-        //    if (tosplit.Length >= 2)
-        //    {
-        //        //parse de respons naar een JArray
-        //        dynamic obj = JArray.Parse(tosplit);
-
-        //        try
-        //        {   // kijk naar elk item in obj
-        //            foreach (JObject item in obj)
-        //            {   // check of het een klant of leverancier is
-        //                if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
-        //                {
-        //                    string knaam = item.GetValue("naam").ToString();
-        //                    string ktnummer = item.GetValue("telefoon").ToString();
-        //                    string kmnummer = item.GetValue("mobieleTelefoon").ToString();
-        //                    string kemail = item.GetValue("email").ToString();
-
-        //                    var Book = new Xamarin.Contacts.AddressBook();
-        //                    var contact = new Contact();
-        //                    contact.FirstName = knaam;
-        //                    Book.save(contact);
-
-
-        //                    Console.WriteLine("naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail);
-        //                }                        
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            System.Diagnostics.Debug.WriteLine("Error: " + ex );
-        //        }                         
-        //    }             
-        //}
-
-        public static async void Splitleverancier()
+        public static List<Contacten> Splitklant()
         {
             //tosplit is de teruggave van de get
             var tosplit = AdministratieActivity.Getrelaties().Result;
+            var klantenlijst = new List<Contacten>();
+
+            if (tosplit.Length >= 2)
+            {
+                //parse de respons naar een JArray
+                dynamic obj = JArray.Parse(tosplit);
+
+                    // kijk naar elk item in obj
+                    foreach (JObject item in obj)
+                    {   // check of het een klant of leverancier is
+                        if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
+                        {
+                            string kcode = item.GetValue("relatiecode").ToString();
+                            string knaam = item.GetValue("naam").ToString();
+                            string ktnummer = item.GetValue("telefoon").ToString();
+                            string kmnummer = item.GetValue("mobieleTelefoon").ToString();
+                            string kemail = item.GetValue("email").ToString();
+
+                            //klantenlijst.Add(new Contacten { Relatiecode = kcode, Naam = knaam, Telefoonnummer = ktnummer, MobielTelefoonnummer = kmnummer, Emailadres = kemail });
+                        }
+                    }
+                }
+            return klantenlijst;
+        }
+
+        public static List<Contacten> Splitleverancier()
+        {
+            //tosplit is de teruggave van de get
+            var tosplit = AdministratieActivity.Getrelaties().Result;
+            var leverancierlijst = new List<Contacten>();
 
             if (tosplit.Length >= 2)
             {
@@ -108,25 +100,22 @@ namespace Application
                     {   // check of het een klant of leverancier is
                         if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
                         {
+                            string lcode = item.GetValue("relatiecode").ToString();
                             string lnaam = item.GetValue("naam").ToString();
                             string ltnummer = item.GetValue("telefoon").ToString();
                             string lmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string lemail = item.GetValue("email").ToString();
 
-                            Console.WriteLine("naam = " + lnaam + " & tnummer = " + ltnummer + " & mnummer = " + lmnummer + " & email = " + lemail);
+                            leverancierlijst.Add(new Contacten { Relatiecode = lcode, Naam = lnaam, Telefoonnummer = ltnummer, MobielTelefoonnummer = lmnummer, Emailadres = lemail });
                         }
                     }
                 }
-
-
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine("Error: " + ex);
                 }
-
-            }
+            } return leverancierlijst;
         }
-       
     }
 }
     
