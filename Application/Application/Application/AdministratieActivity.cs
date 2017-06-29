@@ -58,8 +58,8 @@ namespace Application
             }
                  */
 
-          //  Decrypt(koppelingkey);
-            //await Getrelaties();
+            Decrypt(koppelingkey);
+            await Getrelaties();
             StartActivity(typeof(SelectieActivity));
          
             
@@ -68,6 +68,14 @@ namespace Application
         public string InvKoppelingkey(object sender, EventArgs e)  
         {
             return sender.ToString();         
+        }
+
+        public static string Decrypt(string koppelingkey)
+        {
+            //decrypt de koppelingkey van Base64 naar UTF8
+            string decodedkey;
+            decodedkey = Encoding.UTF8.GetString(Convert.FromBase64String(koppelingkey));
+            return decodedkey;
         }
 
         public static async Task<string> Token()
@@ -82,7 +90,7 @@ namespace Application
                 //decodeer de koppeling key en splits hem naar username en password
                 string password;
                 string username;
-                string decoded = Testcode.Decrypt(koppelingkey);
+                string decoded = Decrypt(koppelingkey);
 
                 var splitted = decoded.Split(':');
                 password = splitted[1];
@@ -102,8 +110,7 @@ namespace Application
                         var jsonresult = JObject.Parse(await response.Content.ReadAsStringAsync());
                         token = (string)jsonresult["access_token"];
 
-                        //print de response naar een txt file zodat wij deze kunnen copy pasten
-                        
+                        //print de response naar een txt file zodat wij deze kunnen copy pasten 
                         Authkey = token;
                     }
                     return token;

@@ -12,6 +12,7 @@ using System.Web;
 using Newtonsoft.Json.Serialization; 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using API_test_1;
 
 namespace CSHttpClientSample
 {
@@ -120,53 +121,38 @@ namespace CSHttpClientSample
         //"factuurEmailVersturen":{"shouldSend":false,"email":"vrie1517@student.nhl.nl","ccEmail":null},"aanmaningEmailVersturen":{"shouldSend":false,"email":"vrie1517@student.nhl.nl","ccEmail":null},"ublBestandAlsBijlage":false,"iban":null,"bic":"",
         //"incassoSoort":"Geen","factuurRelatie":null,"inkoopBoekingenUri":"/relaties/c8bc23e3-520e-4684-ba37-80a7ed5afe70/inkoopboekingen","verkoopBoekingenUri":"/relaties/c8bc23e3-520e-4684-ba37-80a7ed5afe70/verkoopboekingen","id":"c8bc23e3-520e-4684-ba37-80a7ed5afe70","uri":"/relaties/c8bc23e3-520e-4684-ba37-80a7ed5afe70"},
 
-        public static async void Splitklant()
+        public static List<API_test_1.Contacten> Splitklant()
         {
             //tosplit is de teruggave van de get
             var tosplit = Getrelaties().Result;
+            var klantenlijst = new List<API_test_1.Contacten>();
 
+            #region try
             if (tosplit.Length >= 2)
             {
                 //parse de respons naar een JArray
                 dynamic obj = JArray.Parse(tosplit);
-                Console.WriteLine(obj);
-                try
-                {   // kijk naar elk item in obj
+
+                   // kijk naar elk item in obj
                     foreach (JObject item in obj)
                     {   // check of het een klant of leverancier is
                         if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
                         {
+                            string kcode = item.GetValue("relatiecode").ToString();
                             string knaam = item.GetValue("naam").ToString();
                             string ktnummer = item.GetValue("telefoon").ToString();
                             string kmnummer = item.GetValue("mobieleTelefoon").ToString();
                             string kemail = item.GetValue("email").ToString();
-                            //string kstraat = item.GetValue("straat").ToString();
-                            //string kpostcode = item.GetValue("postcode").ToString();
 
-                            Console.WriteLine("naam = " + knaam + " & tnummer = " + ktnummer + " & mnummer = " + kmnummer + " & email = " + kemail /*+ " & straat = " + kstraat + " & postcode = " + kpostcode*/);
-                        }
-                        else if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
-                        {
-                            string lnaam = item.GetValue("naam").ToString();
-                            string ltnummer = item.GetValue("telefoon").ToString();
-                            string lmnummer = item.GetValue("mobieleTelefoon").ToString();
-                            string lemail = item.GetValue("email").ToString();
-                            //string kstraat = item.GetValue("straat").ToString();
-                            //string kpostcode = item.GetValue("postcode").ToString();
-
-                            Console.WriteLine("naam = " + lnaam + " & tnummer = " + ltnummer + " & mnummer = " + lmnummer + " & email = " + lemail/* + " & straat = " + kstraat + " & postcode = " + kpostcode*/);
+                            klantenlijst.Add(new API_test_1.Contacten { Relatiecode = kcode, Naam = knaam, Telefoonnummer = ktnummer, MobielTelefoonnummer = kmnummer, Emailadres = kemail });
+                            //klantenlijst.Add(new API_test_1.Contacten { Relatiecode = item.GetValue("relatiecode").ToString(), Naam = item.GetValue("naam").ToString(), Telefoonnummer = item.GetValue("telefoon").ToString(), MobielTelefoonnummer = item.GetValue("mobieleTelefoon").ToString(), Emailadres = item.GetValue("email").ToString() });
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("error again:" + ex.ToString());
-                }                         
-            }
-            else
-            {
-                Console.WriteLine("Tosplit is leeg. Zoek uit wat er mis is.");
-            }                      
+            #endregion
+
+           
+            return klantenlijst;
         }
     }
 }

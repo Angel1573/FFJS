@@ -20,6 +20,7 @@ namespace Application
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Klant);
             // Create your application here
+
             var OpslaanContacten1 = FindViewById<Button>(Resource.Id.OpslaanContacten1);
             OpslaanContacten1.Click += OpslaanContacten1_Click;
 
