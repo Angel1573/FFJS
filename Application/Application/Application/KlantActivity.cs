@@ -15,7 +15,7 @@ namespace Application
     [Activity(Label = "KlantActivity")]
     public class KlantActivity : Activity
     {
-        private List<Person> mItem;
+        private List<string> mItem;
         private ListView MListView;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,11 +26,13 @@ namespace Application
             SetContentView(Resource.Layout.Main);
             MListView = FindViewById<ListView>(Resource.Id.MyListView);
 
-            mItem = new List<Person>();
-            mItem.Add(new Person() { txtname = "1", txtnaam = "Hindrik", txtAdress = "Downstreet 21", txtTel = "0659584743" });
-            mItem.Add(new Person() { txtname = "2", txtnaam = "Frank", txtAdress = "geenidee1", txtTel = "0659586743" });
-            mItem.Add(new Person() { txtname = "3", txtnaam = "jesse", txtAdress = "rijleskaay", txtTel = "0654584743" });
-            MylistViewAdapter adapter = new MylistViewAdapter(this, mItem);
+            mItem = new List<string>();
+            mItem.Add("tom");
+            mItem.Add("Frank");
+            mItem.Add("Sonfred");
+
+            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, mItem);
+
             MListView.Adapter = adapter;
 
             var OpslaanContacten1 = FindViewById<Button>(Resource.Id.OpslaanContacten1);
