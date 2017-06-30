@@ -104,5 +104,9 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/MyListView" />
+        android:id="@+id/MyListView"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_blue_dark" />
 </LinearLayout>

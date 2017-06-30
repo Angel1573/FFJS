@@ -21,8 +21,8 @@ namespace Application
     public class KlantTelefoonActivity : Activity
     {
 
-        List<string> ListData;
-        ListView dataListView;
+        //List<string> ListData;
+        //ListView dataListView;
 
 
         protected override void OnCreate(Bundle savedInstanceState)

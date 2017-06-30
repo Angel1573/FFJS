@@ -321,6 +321,7 @@ C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\layout\leveranciertelefoon.xml
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\layout\leveranciersnelstart.xml
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\layout\gelukt.xml
+C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\layout\listview_row.xml
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\layout\main.xml
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\values\strings.xml
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\drawable\icon.png
@@ -336,6 +337,5 @@ C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\andr
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\Application.csprojResolveAssemblyReference.cache
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\Application.dll.mdb
 C:\Users\julio\Documents\FFJS\Application\Application\Application\bin\Debug\Application.dll.mdb

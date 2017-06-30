@@ -2,17 +2,6 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-<<<<<<< HEAD
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.Design\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.CardView\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.MediaRouter\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.RecyclerView\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Mobile\library_project_imports\res</ResolvedResourceDirectory>
-=======
     <ResolvedResourceDirectory>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.Design\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat\library_project_imports\res</ResolvedResourceDirectory>
@@ -22,7 +11,6 @@
     <ResolvedResourceDirectory>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Mobile\library_project_imports\res</ResolvedResourceDirectory>
->>>>>>> ae88a82f6d8fdc7076afb9094227c16212f16a2a
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
@@ -31,17 +19,6 @@
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-<<<<<<< HEAD
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.CardView.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.MediaRouter.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.RecyclerView.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\sybre\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Mobile.stamp</ResolvedResourceDirectoryStamp>
-=======
     <ResolvedResourceDirectoryStamp>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
@@ -51,6 +28,5 @@
     <ResolvedResourceDirectoryStamp>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\__library_projects__\Xamarin.Mobile.stamp</ResolvedResourceDirectoryStamp>
->>>>>>> ae88a82f6d8fdc7076afb9094227c16212f16a2a
   </ResolvedResourceDirectoryStamps>
 </Paths>
