@@ -14,8 +14,9 @@ namespace Application
 {
     class Person
     {
-        public string txtname { get; set; }
-        public string txtnaam { get; set; }
+       //referenties naar person moet een naam en relatiecode hebben.
+        public string relatiecodenaam { get; set; }
+        public string contactnaam { get; set; }
      
     }
 }

@@ -137,9 +137,6 @@
   <ItemGroup>
     <Compile Include="AdministratieActivity.cs" />
     <Compile Include="Checkbox.cs" />
-    <Compile Include="Contacten.cs" />
-    <Compile Include="ContactSelectableCell.cs" />
-    <Compile Include="ContactViewModel.cs" />
     <Compile Include="GeluktActivity.cs" />
     <Compile Include="KlantActivity.cs" />
     <Compile Include="KlantSnelstartActivity.cs" />
@@ -155,7 +152,6 @@
     <Compile Include="Person.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectableItemWrapper.cs" />
     <Compile Include="SelectieActivity.cs" />
     <Compile Include="Testcode.cs" />
   </ItemGroup>

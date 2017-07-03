@@ -17,15 +17,17 @@ namespace Application
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //Op aanmaak van deze pagina de layout aanmaken vanuit de axml
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Gelukt);
-            // Create your application here
 
+            //maakt de Meer toevoegen button  
             var MeerToevoegen = FindViewById<Button>(Resource.Id.MeerToevoegen);
             MeerToevoegen.Click += MeerToevoegen_Click;
         }
         private void MeerToevoegen_Click(object sender, System.EventArgs e)
         {
+            //verwijst naar selectieactivity 
             StartActivity(typeof(SelectieActivity));
         }
     }

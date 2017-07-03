@@ -21,17 +21,18 @@ namespace Application
     {
         protected override void OnCreate(Bundle bundle)
         {
+            //Op aanmaak van deze pagina de layout aanmaken vanuit de axml
             base.OnCreate(bundle);
-
-            // Set our view from the "main" layout resource
             SetContentView (Resource.Layout.Main);
 
+            //maak een knop om in te loggen
             var Inloggen = FindViewById<Button>(Resource.Id.Inloggen);
             Inloggen.Click += Inloggen_Click;
         }
 
         private void Inloggen_Click(object sender, System.EventArgs e)
         {
+            // wanneer op de knop gedrukt wordt ga je naar administratieactivity
             StartActivity(typeof(AdministratieActivity));
         }         
     }

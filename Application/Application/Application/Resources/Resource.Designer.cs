@@ -3069,6 +3069,9 @@ namespace Application
 			// aapt resource value: 0x7f080097
 			public const int contactZoeken = 2131230871;
 			
+			// aapt resource value: 0x7f0800b7
+			public const int contactnaam = 2131230903;
+			
 			// aapt resource value: 0x7f08004e
 			public const int contentPanel = 2131230798;
 			
@@ -3324,6 +3327,9 @@ namespace Application
 			// aapt resource value: 0x7f08005d
 			public const int radio = 2131230813;
 			
+			// aapt resource value: 0x7f0800b6
+			public const int relatiecodenaam = 2131230902;
+			
 			// aapt resource value: 0x7f080035
 			public const int right = 2131230773;
 			
@@ -3491,12 +3497,6 @@ namespace Application
 			
 			// aapt resource value: 0x7f08000b
 			public const int transition_scene_layoutid_cache = 2131230731;
-			
-			// aapt resource value: 0x7f0800b7
-			public const int txtNaam = 2131230903;
-			
-			// aapt resource value: 0x7f0800b6
-			public const int txtname = 2131230902;
 			
 			// aapt resource value: 0x7f080009
 			public const int up = 2131230729;

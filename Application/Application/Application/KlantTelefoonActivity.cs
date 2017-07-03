@@ -20,80 +20,61 @@ namespace Application
     [Activity(Label = "KlantTelefoonActivity")]
     public class KlantTelefoonActivity : Activity
     {
-
-        //List<string> ListData;
-        //ListView dataListView;
-
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //Op aanmaak van deze pagina de layout aanmaken vanuit de axml
             base.OnCreate(savedInstanceState);
-            //ListData = new List<string>();
             SetContentView(Resource.Layout.KlantTelefoon);
-            // Create your application here
 
-            //ListData.Add("Jesse");
-           // ListData.Add("Freddy");
-            //ListData.Add("Frank");
-
-            //dataListView = FindViewById<ListView>(Resource.Id.KlantInfoView2);
-
-           // ArrayAdapter<string> listAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, ListData);
-
-            //dataListView.Adapter = listAdapter;
-
-
-
+            //maakt de Synchroniseer button  
             var Synchroniseer2 = FindViewById<Button>(Resource.Id.Synchroniseer2);
             Synchroniseer2.Click += Synchroniseer2_Click;
 
+            //zorgt dat newcontacts aangeroepen wordt zodra er op synchroniseer geklikt wordt
             Synchroniseer2.Click += delegate {
                 Newcontacts();
             };
         }
         private void Synchroniseer2_Click(object sender, System.EventArgs e)
         {
+            //gaat naar gelukt scherm zodra er geklikt is op synchroniseer.
             StartActivity(typeof(GeluktActivity));
         }
 
         public async void Newcontacts()
         {
+            //een variabele met de getrelaties lijst als waarde
             var tosplit = await AdministratieActivity.Getrelaties();
             
+            //definitie van benodigde strings voor de verschillende waarden. 
             string firstName;
             string phone;
             string mobilephone;
-            string email; 
-            //string lkw;
+            string email;  
             string relatiesoort;
-            //string lastName;
-            
-            //var Straat = "nieuwelaan 55";
-            //var Postcode = "9642EP";
-            //var Stad = "Veendam";
-            //var contact_saved_message = "gelukt";
-            //var contact_not_saved_message = "niet gelukt";
 
+            //doe alleen iets als tosplit groter is dan of gelijk is aan 2
             if (tosplit.Length >= 2)
             {
                 //parse de respons naar een JArray
                 dynamic obj = JArray.Parse(tosplit);
           
-
                 // kijk naar elk item in obj
                 foreach (JObject item in obj)
                 {   // check of het een klant of leverancier is
                     if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
                     {   
+                        //pakt de benodigde informatie uit tosplit.
                         relatiesoort = item.GetValue("relatiesoort").ToString();
-                        //string kcode = item.GetValue("relatiecode").ToString();
                         firstName = item.GetValue("naam").ToString();
                         phone = item.GetValue("telefoon").ToString();
                         mobilephone = item.GetValue("mobieleTelefoon").ToString();
                         email = item.GetValue("email").ToString();
 
+                        //aanmaken lijst van contentproviders
                         List<ContentProviderOperation> ops = new List<ContentProviderOperation>();
 
+                        //voegt de content to aan de builder.
                         ContentProviderOperation.Builder builder =
                             ContentProviderOperation.NewInsert(ContactsContract.RawContacts.ContentUri);
                         builder.WithValue(ContactsContract.RawContacts.InterfaceConsts.AccountType, null);
@@ -118,7 +99,7 @@ namespace Application
                         builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Type,
                                           ContactsContract.CommonDataKinds.Phone.InterfaceConsts.TypeCustom);
                         builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Label, "Werk");
-                        builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, relatiesoort);
+                        builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Label, relatiesoort);
                         ops.Add(builder.Build());
 
                         //Email
@@ -133,14 +114,23 @@ namespace Application
                         builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, relatiesoort);
                         ops.Add(builder.Build());
 
+                        //contentprovider array, en stelt deze gelijk aan de contactscontract met de lijst Ops
                         ContentProviderResult[] res;
-
                         res = ContentResolver.ApplyBatch(ContactsContract.Authority, ops);
                     }
                 }
             }
 
             #region uitcommented
+
+            //string lkw;
+            //string lastName;
+            //var Straat = "nieuwelaan 55";
+            //var Postcode = "9642EP";
+            //var Stad = "Veendam";
+            //var contact_saved_message = "gelukt";
+            //var contact_not_saved_message = "niet gelukt";
+
             ////Bedrijf
             //builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
             //builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, 0);
@@ -162,8 +152,6 @@ namespace Application
             //builder.WithValue(ContactsContract.CommonDataKinds.StructuredPostal.City, Stad);
             //ops.Add(builder.Build());
             #endregion
-
-            //Contact toevoegen
 
         }
 

@@ -8,19 +8,19 @@
     android:weightSum="100"
     android:paddingRight="20dp"
     android:paddingLeft="20dp"
-    android:paddingTop="20dp" >
-  <TextView
+    android:paddingTop="20dp">
+    <TextView
         android:text="relatieCode"
         android:layout_width="match_parent"
         android:layout_weight="50"
         android:layout_height="wrap_content"
-        android:id="@+id/txtname"
+        android:id="@+id/relatiecodenaam"
         android:textColor="#000000" />
-  <TextView
-      android:text="Naam"
-      android:layout_width="match_parent"
-      android:layout_weight="50"
-      android:layout_height="wrap_content"
-      android:id="@+id/txtNaam"
-      android:textColor="#000000" />
+    <TextView
+        android:text="Naam"
+        android:layout_width="match_parent"
+        android:layout_weight="50"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactnaam"
+        android:textColor="#000000" />
 </LinearLayout>

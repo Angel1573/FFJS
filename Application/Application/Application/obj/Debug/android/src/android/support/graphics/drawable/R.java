@@ -3091,6 +3091,7 @@ containing a value of this type.
         public static final int clip_vertical=0x7f08003a;
         public static final int collapseActionView=0x7f080024;
         public static final int contactZoeken=0x7f080097;
+        public static final int contactnaam=0x7f0800b7;
         public static final int contentPanel=0x7f08004e;
         public static final int custom=0x7f080055;
         public static final int customPanel=0x7f080054;
@@ -3176,6 +3177,7 @@ containing a value of this type.
         public static final int progress_circular=0x7f080006;
         public static final int progress_horizontal=0x7f080007;
         public static final int radio=0x7f08005d;
+        public static final int relatiecodenaam=0x7f0800b6;
         public static final int right=0x7f080035;
         public static final int right_icon=0x7f0800e7;
         public static final int right_side=0x7f0800e3;
@@ -3232,8 +3234,6 @@ containing a value of this type.
         public static final int touch_outside=0x7f08007c;
         public static final int transition_current_scene=0x7f08000a;
         public static final int transition_scene_layoutid_cache=0x7f08000b;
-        public static final int txtNaam=0x7f0800b7;
-        public static final int txtname=0x7f0800b6;
         public static final int up=0x7f080009;
         public static final int useLogo=0x7f080018;
         public static final int view_offset_helper=0x7f08000e;

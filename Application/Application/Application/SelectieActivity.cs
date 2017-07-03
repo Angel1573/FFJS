@@ -31,10 +31,11 @@ namespace Application
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //Op aanmaak van deze pagina de layout aanmaken vanuit de axml
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Selectie);
-            // Create your application here
-            
+
+            //maakt knooppen klant en leverancier aan
             var Klant = FindViewById<Android.Widget.Button>(Resource.Id.Klant);
             Klant.Click += Klant_Click;
 
@@ -44,69 +45,14 @@ namespace Application
 
         private void Klant_Click(object sender, System.EventArgs e)
         {
+            //gaat naar klantactivity wanneer er op klant geklikt wordt
             StartActivity(typeof(KlantActivity));
         }
 
         private void Leverancier_Click(object sender, System.EventArgs e)
         {
+            //gaat naar leverancieractivity wanneer er op leverancier geklikt wordt
             StartActivity(typeof(LeverancierActivity));
-        }
-
-        public static List<Contacten> Splitklant()
-        {
-            //tosplit is de teruggave van de get
-            var tosplit = AdministratieActivity.Getrelaties().Result;
-            var klantenlijst = new List<Contacten>();
-
-            if (tosplit.Length >= 2)
-            {
-                //parse de respons naar een JArray
-                dynamic obj = JArray.Parse(tosplit);
-
-                    // kijk naar elk item in obj
-                    foreach (JObject item in obj)
-                    {   // check of het een klant of leverancier is
-                        if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
-                        {
-                            string kcode = item.GetValue("relatiecode").ToString();
-                            string knaam = item.GetValue("naam").ToString();
-                            string ktnummer = item.GetValue("telefoon").ToString();
-                            string kmnummer = item.GetValue("mobieleTelefoon").ToString();
-                            string kemail = item.GetValue("email").ToString();                     
-
-                            //klantenlijst.Add(new Contacten { Relatiecode = kcode, Naam = knaam, Telefoonnummer = ktnummer, MobielTelefoonnummer = kmnummer, Emailadres = kemail });
-                        }
-                    }
-                }
-            return klantenlijst;
-        }
-
-        public static List<Contacten> Splitleverancier()
-        {
-            //tosplit is de teruggave van de get
-            var tosplit = AdministratieActivity.Getrelaties().Result;
-            var leverancierlijst = new List<Contacten>();
-
-            if (tosplit.Length >= 2)
-            {
-                //parse de respons naar een JArray
-                dynamic obj = JArray.Parse(tosplit);
-
-                    // kijk naar elk item in obj
-                    foreach (JObject item in obj)
-                    {   // check of het een klant of leverancier is
-                        if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
-                        {
-                            string lcode = item.GetValue("relatiecode").ToString();
-                            string lnaam = item.GetValue("naam").ToString();
-                            string ltnummer = item.GetValue("telefoon").ToString();
-                            string lmnummer = item.GetValue("mobieleTelefoon").ToString();
-                            string lemail = item.GetValue("email").ToString();
-
-                            //leverancierlijst.Add(new Contacten { Relatiecode = lcode, Naam = lnaam, Telefoonnummer = ltnummer, MobielTelefoonnummer = lmnummer, Emailadres = lemail });
-                        }
-                    }
-            } return leverancierlijst;
         }
     }
 }
