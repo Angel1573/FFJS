@@ -332,6 +332,7 @@ C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\R.cs.flag
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\uploadflags.txt
 C:\Users\julio\Documents\FFJS\Application\Application\Application\bin\Debug\Application.dll.mdb
+C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\Application.csprojResolveAssemblyReference.cache
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\Application.dll.mdb
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\FormsViewGroup.dll.mdb
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb

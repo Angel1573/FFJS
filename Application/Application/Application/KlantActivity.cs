@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json.Linq;
 
 namespace Application
 {
@@ -18,18 +19,36 @@ namespace Application
         private List<Person> mItem;
         private ListView MListView;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Klant);
             // Create your application here
             //SetContentView(Resource.Layout.Main);
+
             MListView = FindViewById<ListView>(Resource.Id.MyListView);
 
+            var tosplit = await AdministratieActivity.Getrelaties();
+
+            dynamic obj = JArray.Parse(tosplit);
             mItem = new List<Person>();
-            mItem.Add(new Person() { txtname = "1", txtnaam = "Hindrik" });
-            mItem.Add(new Person() { txtname = "2", txtnaam = "Frank" });
-            mItem.Add(new Person() { txtname = "3", txtnaam = "jesse" });
+
+            // kijk naar elk item in obj
+            foreach (JObject item in obj)
+            {   // check of het een klant of leverancier is
+                if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
+                {
+                   
+                    string kcode = item.GetValue("relatiecode").ToString();
+                    string firstName = item.GetValue("naam").ToString();
+
+                    
+                    // Zet alles in de Listview
+                    mItem.Add(new Person() { txtname = kcode, txtnaam = firstName });
+                }
+            }
+
             MylistViewAdapter adapter = new MylistViewAdapter(this, mItem);
             MListView.Adapter = adapter;
 
@@ -38,7 +57,9 @@ namespace Application
 
             var ToevoegenContacten1 = FindViewById<Button>(Resource.Id.ToevoegenContacten1);
             ToevoegenContacten1.Click += ToevoegenContacten1_Click;
+
         }
+
         private void OpslaanContacten1_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(KlantTelefoonActivity));
