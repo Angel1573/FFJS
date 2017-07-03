@@ -41,14 +41,27 @@ namespace Application
             {   // check of het een klant of leverancier is
                 if (item.GetValue("relatiesoort").ToString().Contains("Leverancier"))
                 {
-                   
+                    if (item.GetValue("relatiesoort").ToString().Contains("Eigen"))
+                    {
+                        continue;
+                    }
+                    else
+                    {
                         //haalt kcode en firstname uit tosplit
                         string kcode = item.GetValue("relatiecode").ToString();
                         string firstName = item.GetValue("naam").ToString();
 
-                        // Zet alles in de Listview
-                        mItem.Add(new Person() { relatiecodenaam = kcode, contactnaam = firstName });
-                    
+                        if (Convert.ToInt32(kcode) < 0)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            // Zet alles in de Listview
+                            mItem.Add(new Person() { relatiecodenaam = kcode, contactnaam = firstName });
+                        }
+                    }
+
                 }
             }
             

@@ -39,13 +39,20 @@ namespace Application
             {   // check of het een klant of leverancier is
                 if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
                 {
+                    //als de relatiesoort eigen bevat, skip deze.
+                    if (item.GetValue("relatiesoort").ToString().Contains("Eigen"))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        //pakt de klantcode en first name
+                        string kcode = item.GetValue("relatiecode").ToString();
+                        string firstName = item.GetValue("naam").ToString();
 
-                    //pakt de klantcode en first name
-                    string kcode = item.GetValue("relatiecode").ToString();
-                    string firstName = item.GetValue("naam").ToString();
-
-                    // Zet alles in de Listview
-                    mItem.Add(new Person() { relatiecodenaam = kcode, contactnaam = firstName });
+                        // Zet alles in de Listview
+                        mItem.Add(new Person() { relatiecodenaam = kcode, contactnaam = firstName });
+                    }
 
                 }
             }
