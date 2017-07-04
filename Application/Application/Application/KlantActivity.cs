@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json.Linq;
+using Android.Widget;
+
 
 namespace Application
 {
@@ -60,6 +62,8 @@ namespace Application
             //maakt een adapter voor de listview met de items er in
             MylistViewAdapter adapter = new MylistViewAdapter(this, mItem);
             MListView.Adapter = adapter;
+            MListView.ChoiceMode = ChoiceMode.Multiple;
+
 
             //maakt de buttons opslaancontacten en toevoegen contacten
             var OpslaanContacten1 = FindViewById<Button>(Resource.Id.OpslaanContacten1);
@@ -70,14 +74,20 @@ namespace Application
 
         }
 
-        private void OpslaanContacten1_Click(object sender, System.EventArgs e)
+        public void OpslaanContacten1_Click(object sender, System.EventArgs e)
         {
             //wanneer er geklikt wordt, ga naar klant telefoonactivity
             StartActivity(typeof(KlantTelefoonActivity));
 
-            //Klant data doorgeven aan volgende lijst
-           \
+            //Checked data opslaan in een string
+            var data = new StringBuilder();
+            var arr = FindViewById<ListView>(Resource.Id.MyListView).CheckedItemPositions;
 
+            for (var i = 0; i < arr.Size(); i++)
+            {
+                data.AppendLine(string.Format("{0}, {1}", arr.KeyAt(i), arr.ValueAt(i)));
+            }
+            data.ToString();
         }
 
         private void ToevoegenContacten1_Click(object sender, System.EventArgs e)
@@ -85,5 +95,8 @@ namespace Application
             //wanneer er geklikt wordt, ga naar klant snelstart activity
             StartActivity(typeof(KlantSnelstartActivity));
         }
+
+        
+
     }
 }
