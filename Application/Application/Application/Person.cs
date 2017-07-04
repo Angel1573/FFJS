@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Application
 {
-    class Person
+    public class Person
     {
        //referenties naar person moet een naam en relatiecode hebben.
         public string relatiecodenaam { get; set; }

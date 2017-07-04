@@ -21,6 +21,8 @@ namespace Application
         //definieert de lijst met personen en de listview.
         private List<Person> mItem;
         private ListView MListView;
+        public static string text;
+
 
         protected async override void OnCreate(Bundle savedInstanceState)
         {
@@ -64,7 +66,6 @@ namespace Application
             MListView.Adapter = adapter;
             MListView.ChoiceMode = ChoiceMode.Multiple;
 
-
             //maakt de buttons opslaancontacten en toevoegen contacten
             var OpslaanContacten1 = FindViewById<Button>(Resource.Id.OpslaanContacten1);
             OpslaanContacten1.Click += OpslaanContacten1_Click;
@@ -76,18 +77,10 @@ namespace Application
 
         public void OpslaanContacten1_Click(object sender, System.EventArgs e)
         {
+            text = listselected();
             //wanneer er geklikt wordt, ga naar klant telefoonactivity
             StartActivity(typeof(KlantTelefoonActivity));
-
-            //Checked data opslaan in een string
-            var data = new StringBuilder();
-            var arr = FindViewById<ListView>(Resource.Id.MyListView).CheckedItemPositions;
-
-            for (var i = 0; i < arr.Size(); i++)
-            {
-                data.AppendLine(string.Format("{0}, {1}", arr.KeyAt(i), arr.ValueAt(i)));
-            }
-            data.ToString();
+          
         }
 
         private void ToevoegenContacten1_Click(object sender, System.EventArgs e)
@@ -96,7 +89,20 @@ namespace Application
             StartActivity(typeof(KlantSnelstartActivity));
         }
 
-        
+        public string listselected()
+        {
+            var arr = FindViewById<ListView>(Resource.Id.MyListView).CheckedItemPositions;
+            var data = new StringBuilder();
+
+            for (var i = 0; i < arr.Size(); i++)
+            {
+                data.AppendLine(string.Format("{0}, {1}", arr.KeyAt(i), arr.ValueAt(i)));
+            }
+            text = data.ToString();
+
+            return text;
+        }
+
 
     }
 }
