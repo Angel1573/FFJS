@@ -23,4 +23,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/contactnaam"
         android:textColor="#000000" />
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:checked="false"
+        android:textOn=""
+        android:textOff="" />
 </LinearLayout>

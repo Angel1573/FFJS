@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>3-7-2017 13:46:34</xs:documentation>
+    <xs:documentation>4-7-2017 11:46:49</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -28621,98 +28621,7 @@
     <xs:simpleType>
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="@string/abc_action_bar_home_description" />
-            <xs:enumeration value="@string/abc_action_bar_home_description_format" />
-            <xs:enumeration value="@string/abc_action_bar_home_subtitle_description_format" />
-            <xs:enumeration value="@string/abc_action_bar_up_description" />
-            <xs:enumeration value="@string/abc_action_menu_overflow_description" />
-            <xs:enumeration value="@string/abc_action_mode_done" />
-            <xs:enumeration value="@string/abc_activity_chooser_view_see_all" />
-            <xs:enumeration value="@string/abc_activitychooserview_choose_application" />
-            <xs:enumeration value="@string/abc_capital_off" />
-            <xs:enumeration value="@string/abc_capital_on" />
-            <xs:enumeration value="@string/abc_font_family_body_1_material" />
-            <xs:enumeration value="@string/abc_font_family_body_2_material" />
-            <xs:enumeration value="@string/abc_font_family_button_material" />
-            <xs:enumeration value="@string/abc_font_family_caption_material" />
-            <xs:enumeration value="@string/abc_font_family_display_1_material" />
-            <xs:enumeration value="@string/abc_font_family_display_2_material" />
-            <xs:enumeration value="@string/abc_font_family_display_3_material" />
-            <xs:enumeration value="@string/abc_font_family_display_4_material" />
-            <xs:enumeration value="@string/abc_font_family_headline_material" />
-            <xs:enumeration value="@string/abc_font_family_menu_material" />
-            <xs:enumeration value="@string/abc_font_family_subhead_material" />
-            <xs:enumeration value="@string/abc_font_family_title_material" />
-            <xs:enumeration value="@string/abc_search_hint" />
-            <xs:enumeration value="@string/abc_searchview_description_clear" />
-            <xs:enumeration value="@string/abc_searchview_description_query" />
-            <xs:enumeration value="@string/abc_searchview_description_search" />
-            <xs:enumeration value="@string/abc_searchview_description_submit" />
-            <xs:enumeration value="@string/abc_searchview_description_voice" />
-            <xs:enumeration value="@string/abc_shareactionprovider_share_with" />
-            <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
-            <xs:enumeration value="@string/abc_toolbar_collapse_description" />
-            <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
-            <xs:enumeration value="@string/ApplicationName" />
-            <xs:enumeration value="@string/bottom_sheet_behavior" />
-            <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/Hello" />
-            <xs:enumeration value="@string/mr_button_content_description" />
-            <xs:enumeration value="@string/mr_cast_button_connected" />
-            <xs:enumeration value="@string/mr_cast_button_connecting" />
-            <xs:enumeration value="@string/mr_cast_button_disconnected" />
-            <xs:enumeration value="@string/mr_chooser_searching" />
-            <xs:enumeration value="@string/mr_chooser_title" />
-            <xs:enumeration value="@string/mr_controller_album_art" />
-            <xs:enumeration value="@string/mr_controller_casting_screen" />
-            <xs:enumeration value="@string/mr_controller_close_description" />
-            <xs:enumeration value="@string/mr_controller_collapse_group" />
-            <xs:enumeration value="@string/mr_controller_disconnect" />
-            <xs:enumeration value="@string/mr_controller_expand_group" />
-            <xs:enumeration value="@string/mr_controller_no_info_available" />
-            <xs:enumeration value="@string/mr_controller_no_media_selected" />
-            <xs:enumeration value="@string/mr_controller_pause" />
-            <xs:enumeration value="@string/mr_controller_play" />
-            <xs:enumeration value="@string/mr_controller_stop" />
-            <xs:enumeration value="@string/mr_controller_stop_casting" />
-            <xs:enumeration value="@string/mr_controller_volume_slider" />
-            <xs:enumeration value="@string/mr_system_route_name" />
-            <xs:enumeration value="@string/mr_user_route_category_name" />
-            <xs:enumeration value="@string/password_toggle_content_description" />
-            <xs:enumeration value="@string/path_password_eye" />
-            <xs:enumeration value="@string/path_password_eye_mask_strike_through" />
-            <xs:enumeration value="@string/path_password_eye_mask_visible" />
-            <xs:enumeration value="@string/path_password_strike_through" />
-            <xs:enumeration value="@string/search_menu_title" />
-            <xs:enumeration value="@string/status_bar_notification_info_overflow" />
-            <xs:enumeration value="@android:string/cancel" />
-            <xs:enumeration value="@android:string/copy" />
-            <xs:enumeration value="@android:string/copyUrl" />
-            <xs:enumeration value="@android:string/cut" />
-            <xs:enumeration value="@android:string/defaultMsisdnAlphaTag" />
-            <xs:enumeration value="@android:string/defaultVoiceMailAlphaTag" />
-            <xs:enumeration value="@android:string/dialog_alert_title" />
-            <xs:enumeration value="@android:string/emptyPhoneNumber" />
-            <xs:enumeration value="@android:string/fingerprint_icon_content_description" />
-            <xs:enumeration value="@android:string/httpErrorBadUrl" />
-            <xs:enumeration value="@android:string/httpErrorUnsupportedScheme" />
-            <xs:enumeration value="@android:string/no" />
-            <xs:enumeration value="@android:string/ok" />
-            <xs:enumeration value="@android:string/paste" />
-            <xs:enumeration value="@android:string/search_go" />
-            <xs:enumeration value="@android:string/selectAll" />
-            <xs:enumeration value="@android:string/selectTextMode" />
-            <xs:enumeration value="@android:string/status_bar_notification_info_overflow" />
-            <xs:enumeration value="@android:string/unknownName" />
-            <xs:enumeration value="@android:string/untitled" />
-            <xs:enumeration value="@android:string/VideoView_error_button" />
-            <xs:enumeration value="@android:string/VideoView_error_text_invalid_progressive_playback" />
-            <xs:enumeration value="@android:string/VideoView_error_text_unknown" />
-            <xs:enumeration value="@android:string/VideoView_error_title" />
-            <xs:enumeration value="@android:string/yes" />
-            <xs:enumeration value="?android:attr/candidatesTextStyleSpans" />
-          </xs:restriction>
+          <xs:restriction base="xs:string" />
         </xs:simpleType>
       </xs:union>
     </xs:simpleType>

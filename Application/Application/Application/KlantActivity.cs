@@ -74,6 +74,10 @@ namespace Application
         {
             //wanneer er geklikt wordt, ga naar klant telefoonactivity
             StartActivity(typeof(KlantTelefoonActivity));
+
+            //Klant data doorgeven aan volgende lijst
+           \
+
         }
 
         private void ToevoegenContacten1_Click(object sender, System.EventArgs e)

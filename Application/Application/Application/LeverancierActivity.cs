@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json.Linq;
+using System.Windows;
 
 namespace Application
 {
@@ -35,7 +36,7 @@ namespace Application
             dynamic obj = JArray.Parse(tosplit);
             //maakt een nieuwe mitem aan.
             mItem = new List<Person>();
-
+            
             // kijk naar elk item in obj
             foreach (JObject item in obj)
             {   // check of het een klant of leverancier is

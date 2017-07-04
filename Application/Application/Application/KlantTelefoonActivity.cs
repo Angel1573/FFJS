@@ -19,12 +19,22 @@ namespace Application
 {
     [Activity(Label = "KlantTelefoonActivity")]
     public class KlantTelefoonActivity : Activity
-    {
+    {       
+        //definieert de lijst met personen en de listview.
+        private List<Person> mItem;
+        private ListView MListView;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             //Op aanmaak van deze pagina de layout aanmaken vanuit de axml
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.KlantTelefoon);
+            //maakt de listview aan
+            MListView = FindViewById<ListView>(Resource.Id.MyListView);
+
+            //maakt een nieuwe mitem aan.
+            mItem = new List<Person>();
+            
 
             //maakt de Synchroniseer button  
             var Synchroniseer2 = FindViewById<Button>(Resource.Id.Synchroniseer2);
