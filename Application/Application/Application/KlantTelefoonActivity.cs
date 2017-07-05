@@ -23,18 +23,49 @@ namespace Application
         //definieert de lijst met personen en de listview.
         private List<Person> mItem;
         private ListView MListView;
+        public string splitbaar;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             //Op aanmaak van deze pagina de layout aanmaken vanuit de axml
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.KlantTelefoon);
             //maakt de listview aan
             MListView = FindViewById<ListView>(Resource.Id.MyListView);
+            var tosplit = await AdministratieActivity.Getrelaties();
+            splitbaar = tosplit;
 
             //maakt een nieuwe mitem aan.
             mItem = new List<Person>();
-            
+
+            dynamic obj = JArray.Parse(tosplit);
+            mItem = new List<Person>();
+
+            // kijk naar elk item in obj
+            foreach (JObject item in obj)
+            {   // check of het een klant of leverancier is
+                if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
+                {
+                    string code = item.GetValue("relatiecode").ToString();
+                    string selected = KlantActivity.text; 
+
+                    //als de relatiesoort eigen bevat, skip deze.
+                    if (item.GetValue("relatiesoort").ToString().Contains("Eigen"))
+                    {
+                        continue;
+                    }
+                    else if (selected.Contains(code))
+                    {
+                        //pakt de klantcode en first name
+                        string kcode = item.GetValue("relatiecode").ToString();
+                        string firstName = item.GetValue("naam").ToString();
+
+                        // Zet alles in de Listview
+                        mItem.Add(new Person() { relatiecodenaam = kcode, contactnaam = firstName });
+                    }
+
+                }
+            }
 
             //maakt de Synchroniseer button  
             var Synchroniseer2 = FindViewById<Button>(Resource.Id.Synchroniseer2);
@@ -54,8 +85,8 @@ namespace Application
         public async void Newcontacts()
         {
             //een variabele met de getrelaties lijst als waarde
-            var tosplit = await AdministratieActivity.Getrelaties();
-            
+            string contactsplit = splitbaar;
+
             //definitie van benodigde strings voor de verschillende waarden. 
             string firstName;
             string phone;
@@ -64,69 +95,75 @@ namespace Application
             string relatiesoort;
 
             //doe alleen iets als tosplit groter is dan of gelijk is aan 2
-            if (tosplit.Length >= 2)
+            if (contactsplit.Length >= 2)
             {
                 //parse de respons naar een JArray
-                dynamic obj = JArray.Parse(tosplit);
+                dynamic obj = JArray.Parse(contactsplit);
           
                 // kijk naar elk item in obj
                 foreach (JObject item in obj)
                 {   // check of het een klant of leverancier is
                     if (item.GetValue("relatiesoort").ToString().Contains("Klant"))
-                    {   
-                        //pakt de benodigde informatie uit tosplit.
-                        relatiesoort = item.GetValue("relatiesoort").ToString();
-                        firstName = item.GetValue("naam").ToString();
-                        phone = item.GetValue("telefoon").ToString();
-                        mobilephone = item.GetValue("mobieleTelefoon").ToString();
-                        email = item.GetValue("email").ToString();
+                    {
+                        string kcode = item.GetValue("relatiecode").ToString();
+                        string selected = KlantActivity.text;
 
-                        //aanmaken lijst van contentproviders
-                        List<ContentProviderOperation> ops = new List<ContentProviderOperation>();
+                        if (selected.Contains(kcode))
+                        {
+                            //pakt de benodigde informatie uit tosplit.
+                            relatiesoort = item.GetValue("relatiesoort").ToString();
+                            firstName = item.GetValue("naam").ToString();
+                            phone = item.GetValue("telefoon").ToString();
+                            mobilephone = item.GetValue("mobieleTelefoon").ToString();
+                            email = item.GetValue("email").ToString();
 
-                        //voegt de content to aan de builder.
-                        ContentProviderOperation.Builder builder =
-                            ContentProviderOperation.NewInsert(ContactsContract.RawContacts.ContentUri);
-                        builder.WithValue(ContactsContract.RawContacts.InterfaceConsts.AccountType, null);
-                        builder.WithValue(ContactsContract.RawContacts.InterfaceConsts.AccountName, null);
-                        ops.Add(builder.Build());
+                            //aanmaken lijst van contentproviders
+                            List<ContentProviderOperation> ops = new List<ContentProviderOperation>();
 
-                        //Naam
-                        builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
-                        builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, 0);
-                        builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
-                                          ContactsContract.CommonDataKinds.StructuredName.ContentItemType);
-                        //builder.WithValue(ContactsContract.CommonDataKinds.StructuredName.FamilyName, lastName);
-                        builder.WithValue(ContactsContract.CommonDataKinds.StructuredName.GivenName, firstName);
-                        ops.Add(builder.Build());
+                            //voegt de content to aan de builder.
+                            ContentProviderOperation.Builder builder =
+                                ContentProviderOperation.NewInsert(ContactsContract.RawContacts.ContentUri);
+                            builder.WithValue(ContactsContract.RawContacts.InterfaceConsts.AccountType, null);
+                            builder.WithValue(ContactsContract.RawContacts.InterfaceConsts.AccountName, null);
+                            ops.Add(builder.Build());
 
-                        //Telefoonnummer
-                        builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
-                        builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, 0);
-                        builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
-                                          ContactsContract.CommonDataKinds.Phone.ContentItemType);
-                        builder.WithValue(ContactsContract.CommonDataKinds.Phone.Number, phone);
-                        builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Type,
-                                          ContactsContract.CommonDataKinds.Phone.InterfaceConsts.TypeCustom);
-                        builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Label, "Werk");
-                        builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Label, relatiesoort);
-                        ops.Add(builder.Build());
+                            //Naam
+                            builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
+                            builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, 0);
+                            builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
+                                              ContactsContract.CommonDataKinds.StructuredName.ContentItemType);
+                            //builder.WithValue(ContactsContract.CommonDataKinds.StructuredName.FamilyName, lastName);
+                            builder.WithValue(ContactsContract.CommonDataKinds.StructuredName.GivenName, firstName);
+                            ops.Add(builder.Build());
 
-                        //Email
-                        builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
-                        builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, 0);
-                        builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
-                                          ContactsContract.CommonDataKinds.Email.ContentItemType);
-                        builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Data, email);
-                        builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Type,
-                                          ContactsContract.CommonDataKinds.Email.InterfaceConsts.TypeCustom);
-                        builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, "Werk");
-                        builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, relatiesoort);
-                        ops.Add(builder.Build());
+                            //Telefoonnummer
+                            builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
+                            builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, 0);
+                            builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
+                                              ContactsContract.CommonDataKinds.Phone.ContentItemType);
+                            builder.WithValue(ContactsContract.CommonDataKinds.Phone.Number, phone);
+                            builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Type,
+                                              ContactsContract.CommonDataKinds.Phone.InterfaceConsts.TypeCustom);
+                            builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Label, "Werk");
+                            builder.WithValue(ContactsContract.CommonDataKinds.Phone.InterfaceConsts.Label, relatiesoort);
+                            ops.Add(builder.Build());
 
-                        //contentprovider array, en stelt deze gelijk aan de contactscontract met de lijst Ops
-                        ContentProviderResult[] res;
-                        res = ContentResolver.ApplyBatch(ContactsContract.Authority, ops);
+                            //Email
+                            builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
+                            builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, 0);
+                            builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
+                                              ContactsContract.CommonDataKinds.Email.ContentItemType);
+                            builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Data, email);
+                            builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Type,
+                                              ContactsContract.CommonDataKinds.Email.InterfaceConsts.TypeCustom);
+                            builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, "Werk");
+                            builder.WithValue(ContactsContract.CommonDataKinds.Email.InterfaceConsts.Label, relatiesoort);
+                            ops.Add(builder.Build());
+
+                            //contentprovider array, en stelt deze gelijk aan de contactscontract met de lijst Ops
+                            ContentProviderResult[] res;
+                            res = ContentResolver.ApplyBatch(ContactsContract.Authority, ops);
+                        }                       
                     }
                 }
             }

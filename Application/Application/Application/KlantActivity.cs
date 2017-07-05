@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json.Linq;
+using Android.Widget;
+
 
 namespace Application
 {
@@ -19,6 +21,8 @@ namespace Application
         //definieert de lijst met personen en de listview.
         private List<Person> mItem;
         private ListView MListView;
+        public static string text;
+
 
         protected async override void OnCreate(Bundle savedInstanceState)
         {
@@ -60,6 +64,7 @@ namespace Application
             //maakt een adapter voor de listview met de items er in
             MylistViewAdapter adapter = new MylistViewAdapter(this, mItem);
             MListView.Adapter = adapter;
+            MListView.ChoiceMode = ChoiceMode.Multiple;
 
             //maakt de buttons opslaancontacten en toevoegen contacten
             var OpslaanContacten1 = FindViewById<Button>(Resource.Id.OpslaanContacten1);
@@ -70,14 +75,12 @@ namespace Application
 
         }
 
-        private void OpslaanContacten1_Click(object sender, System.EventArgs e)
+        public void OpslaanContacten1_Click(object sender, System.EventArgs e)
         {
+            text = listselected();
             //wanneer er geklikt wordt, ga naar klant telefoonactivity
             StartActivity(typeof(KlantTelefoonActivity));
-
-            //Klant data doorgeven aan volgende lijst
-           \
-
+          
         }
 
         private void ToevoegenContacten1_Click(object sender, System.EventArgs e)
@@ -85,5 +88,21 @@ namespace Application
             //wanneer er geklikt wordt, ga naar klant snelstart activity
             StartActivity(typeof(KlantSnelstartActivity));
         }
+
+        public string listselected()
+        {
+            var arr = FindViewById<ListView>(Resource.Id.MyListView).CheckedItemPositions;
+            var data = new StringBuilder();
+
+            for (var i = 0; i < arr.Size(); i++)
+            {
+                data.AppendLine(string.Format("{0}, {1}", arr.KeyAt(i), arr.ValueAt(i)));
+            }
+            text = data.ToString();
+
+            return text;
+        }
+
+
     }
 }

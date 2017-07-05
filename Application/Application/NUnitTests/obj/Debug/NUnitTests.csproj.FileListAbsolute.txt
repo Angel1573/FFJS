@@ -55,4 +55,3 @@ C:\Users\Freddy\Documents\FFJS\Application\Application\NUnitTests\bin\Debug\Form
 C:\Users\Freddy\Documents\FFJS\Application\Application\NUnitTests\obj\Debug\NUnitTests.csprojResolveAssemblyReference.cache
 C:\Users\Freddy\Documents\FFJS\Application\Application\NUnitTests\obj\Debug\NUnitTests.dll
 C:\Users\Freddy\Documents\FFJS\Application\Application\NUnitTests\obj\Debug\NUnitTests.pdb
-C:\Users\julio\Documents\FFJS\Application\Application\NUnitTests\obj\Debug\NUnitTests.csprojResolveAssemblyReference.cache
