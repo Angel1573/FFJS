@@ -14,7 +14,8 @@
         android:layout_gravity="center"
         android:layout_marginRight="95dp"
         android:paddingBottom="70dp"
-        android:layout_marginBottom="-70dp" />
+        android:layout_marginBottom="-70dp"
+        android:layout_marginLeft="20dp" />
     <TextView
         android:id="@+id/SelecteerContacten4"
         android:text="Selecteer de contacten die u wilt toevoegen"

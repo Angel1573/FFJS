@@ -12,7 +12,8 @@
         android:layout_gravity="center"
         android:layout_marginRight="95dp"
         android:paddingBottom="70dp"
-        android:layout_marginBottom="-70dp" />
+        android:layout_marginBottom="-70dp"
+        android:layout_marginLeft="20dp" />
     <Button
         android:text="Opslaan in contacten"
         android:textColor="#000000"
@@ -69,7 +70,7 @@
             android:layout_marginRight="-30dp" />
         <TextView
             android:id="@+id/LevWoonplaats1"
-            android:text="Plaats"
+            android:text="Nummer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"

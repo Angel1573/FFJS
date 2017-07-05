@@ -51,7 +51,7 @@
         android:background="#ffffff"
         android:textColor="#0000FF"
         android:layout_marginBottom="5.0dp"
-        android:layout_marginLeft="180.0dp"
+        android:layout_marginLeft="150.0dp"
         android:layout_marginTop="5.0dp"
         android:layout_marginRight="20dp" />
     <Button
