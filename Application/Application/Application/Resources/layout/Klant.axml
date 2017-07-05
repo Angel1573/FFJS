@@ -83,6 +83,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/Naam_Mail_Bel_Plaats" />
     <ListView
+        ItemsSource="{Binding Items}" 
+        SelectedItem="{Binding SelectedItem}"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/MyListView"
@@ -91,4 +93,5 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp" />
+
 </LinearLayout>

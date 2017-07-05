@@ -13,6 +13,7 @@ using System.Net.Http;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Xamarin.Forms;
 
 namespace Application
 {
@@ -26,7 +27,7 @@ namespace Application
             SetContentView (Resource.Layout.Main);
 
             //maak een knop om in te loggen
-            var Inloggen = FindViewById<Button>(Resource.Id.Inloggen);
+            var Inloggen = FindViewById<Android.Widget.Button>(Resource.Id.Inloggen);
             Inloggen.Click += Inloggen_Click;
         }
 
