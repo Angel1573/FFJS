@@ -18,6 +18,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Provider;
 
 namespace Application
 {
@@ -28,6 +29,7 @@ namespace Application
         public static string APIkey = AdministratieActivity.APIkey;
         public static string Authkey;
         public static bool gelukt;
+        public static List<TPerson> clist;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,6 +44,7 @@ namespace Application
         private async void Synchroniseer1_Click(object sender, System.EventArgs e)
         {
             // gaat naar het Gelukt scherm wanneer er geklikt is.
+            await Acontacts();
             await Postrelaties();
 
             if (gelukt == true)
@@ -104,6 +107,33 @@ namespace Application
             }
         }
 
+        public async Task<List<TPerson>> Acontacts()
+        {
+            clist = new List<TPerson>();
+
+            var uri = ContactsContract.CommonDataKinds.Phone.ContentUri;
+
+            string[] projection = { 
+                ContactsContract.Contacts.InterfaceConsts.DisplayName, ContactsContract.CommonDataKinds.Phone.Number, ContactsContract.CommonDataKinds.Email.InterfaceConsts.Data};
+
+            var cursor = ManagedQuery(uri, projection, null, null, ContactsContract.Contacts.InterfaceConsts.Id);
+
+            if (cursor.MoveToFirst())
+            {
+                do
+                {   /*"Contact ID: {0}, Contact Name: {1}, Telefoonnummer {2}",*/
+                    clist.Add(new TPerson()
+                    {
+                        contactnaam = cursor.GetString(cursor.GetColumnIndex(projection[0])),
+                        telefoonnummer = cursor.GetString(cursor.GetColumnIndex(projection[1])),
+                        email = cursor.GetString(cursor.GetColumnIndex(projection[2]))
+                    });
+
+                } while (cursor.MoveToNext());
+            }
+            return clist;
+        }
+
         public static async Task<string> Postrelaties()
         {
             using (HttpClient client = new HttpClient())
@@ -112,6 +142,7 @@ namespace Application
                 var PostEndpoint = @"https://b2bapi.snelstart.nl/v1/relaties?";
                 var Post = "";
                 await Token();
+
 
                 //decodeer de koppeling key en splits hem naar username en password
                 string password;
@@ -128,13 +159,23 @@ namespace Application
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
                 client.DefaultRequestHeaders.Add("Authorization", Authkey);
 
-                //de body van de request.                
+                string naam;
+                string tnummer;
+                string email;
                 var body = new List<KeyValuePair<string, string>>();
-                body.Add(new KeyValuePair<string, string>("naam", "Wypke"));
-                body.Add(new KeyValuePair<string, string>("telefoon", "09060669"));
-                body.Add(new KeyValuePair<string, string>("mobieleTelefoon", "0612345678"));
-                body.Add(new KeyValuePair<string, string>("email", "idk@notreal.com"));
-                body.Add(new KeyValuePair<string, string>("relatiesoort", "Klant"));
+
+                foreach (var item in clist)
+                {
+                    naam = item.contactnaam;
+                    tnummer = item.telefoonnummer;
+                    email = item.email;
+
+                    //de body van de request.
+                    body.Add(new KeyValuePair<string, string>("naam", naam));
+                    body.Add(new KeyValuePair<string, string>("telefoon", tnummer));
+                    body.Add(new KeyValuePair<string, string>("email", email));
+                    body.Add(new KeyValuePair<string, string>("relatiesoort", "Klant"));
+                }
 
                 // de request zelf. 
                 using (var response = await client.PostAsync(PostEndpoint, new FormUrlEncodedContent(body)))
