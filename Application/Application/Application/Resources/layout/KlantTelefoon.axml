@@ -28,6 +28,17 @@
         android:layout_marginBottom="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp" />
+    <Button
+        android:text="Synchroniseer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/Borders"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/Synchroniseer2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
     <SearchView
         android:id="@+id/klantZoeken2"
         android:layout_width="match_parent"
@@ -36,7 +47,9 @@
         android:layout_marginRight="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp" />
     <LinearLayout
         android:id="@+id/Naam_Plaats"
         android:layout_width="match_parent"
@@ -55,7 +68,7 @@
             android:layout_marginLeft="20dp" />
         <TextView
             android:id="@+id/KlantWoonplaats2"
-            android:text="Plaats"
+            android:text="Nummer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
@@ -65,17 +78,6 @@
             android:gravity="right"
             android:layout_marginRight="20dp" />
     </LinearLayout>
-    <Button
-        android:text="Synchroniseer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/Borders"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:id="@+id/Synchroniseer2"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,5 +85,6 @@
         android:background="@drawable/Borders"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
 </LinearLayout>

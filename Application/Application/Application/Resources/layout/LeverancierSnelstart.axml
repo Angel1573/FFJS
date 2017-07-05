@@ -28,6 +28,18 @@
         android:layout_marginBottom="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp" />
+    <Button
+        android:text="Synchroniseer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/Borders"
+        android:id="@+id/Synchroniseer3"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp" />
     <SearchView
         android:id="@+id/LevZoeken4"
         android:layout_width="match_parent"
@@ -39,23 +51,13 @@
         android:layout_marginLeft="20dp"
         android:minWidth="25px"
         android:minHeight="25px" />
-    <Button
-        android:text="Synchroniseer"
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:layout_height="match_parent"
+        android:id="@+id/MyListView"
         android:background="@drawable/Borders"
-        android:id="@+id/Synchroniseer3"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp" />
-  <ListView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/MyListView"
-    android:background="@drawable/Borders"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
 </LinearLayout>

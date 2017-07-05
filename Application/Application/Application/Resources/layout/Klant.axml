@@ -12,72 +12,7 @@
         android:layout_gravity="center"
         android:layout_marginRight="95dp"
         android:paddingBottom="70dp"
-        android:layout_marginBottom="-70dp" />
-    <SearchView
-        android:id="@+id/klantZoeken1"
-        android:layout_width="match_parent"
-        android:background="@drawable/Borders"
-        android:gravity="left"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:layout_marginRight="100dp"
-        android:layout_marginLeft="20dp" />
-    <LinearLayout
-        android:id="@+id/Naam_Mail_Bel_Plaats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/klantZoeken">
-        <TextView
-            android:id="@+id/KlantNaam1"
-            android:text="Klant"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:textColor="#000000"
-            android:textSize="19.5sp"
-            android:textStyle="bold"
-            android:layout_gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="-30dp" />
-        <ImageView
-            android:id="@+id/MailIcon1"
-            android:src="@drawable/mail_small"
-            android:layout_gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:layout_marginBottom="-45dp"
-            android:layout_marginTop="-45dp"
-            android:layout_marginRight="-50dp"
-            android:paddingLeft="55dp"
-            android:layout_marginLeft="10dp"
-            android:paddingRight="10dp" />
-        <ImageView
-            android:id="@+id/BelIcon1"
-            android:src="@drawable/phone_small"
-            android:layout_gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:paddingLeft="80dp"
-            android:layout_marginLeft="0dp" />
-        <TextView
-            android:id="@+id/KlantWoonplaats1"
-            android:text="Plaats"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:textColor="#000000"
-            android:textSize="19.5sp"
-            android:textStyle="bold"
-            android:gravity="right"
-            android:layout_marginRight="20dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/KlantInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Naam_Mail_Bel_Plaats" />
+        android:layout_marginBottom="-60dp" />
     <Button
         android:text="Opslaan in contacten"
         android:textColor="#000000"
@@ -101,6 +36,51 @@
         android:id="@+id/ToevoegenContacten1"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp" />
+    <SearchView
+        android:id="@+id/klantZoeken1"
+        android:layout_width="match_parent"
+        android:background="@drawable/Borders"
+        android:gravity="left"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp" />
+    <LinearLayout
+        android:id="@+id/Naam_Mail_Bel_Plaats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/klantZoeken">
+        <TextView
+            android:id="@+id/KlantNaam1"
+            android:text="Klant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:textColor="#000000"
+            android:textSize="19.5sp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="-30dp" />
+        <TextView
+            android:id="@+id/KlantWoonplaats1"
+            android:text="Nummer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:textColor="#000000"
+            android:textSize="19.5sp"
+            android:textStyle="bold"
+            android:gravity="right"
+            android:layout_marginRight="20dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/KlantInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Naam_Mail_Bel_Plaats" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -108,5 +88,6 @@
         android:background="@drawable/Borders"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp" />
 </LinearLayout>
