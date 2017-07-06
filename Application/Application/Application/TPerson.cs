@@ -14,6 +14,7 @@ namespace Application
 {
     public class TPerson
     {
+        public string code { get; set; }
         public string contactnaam { get; set; }
         public string telefoonnummer { get; set; }
         public string email { get; set; }
