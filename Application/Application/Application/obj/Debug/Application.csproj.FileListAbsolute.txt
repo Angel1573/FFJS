@@ -339,5 +339,6 @@ C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\andr
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\res\layout\mislukt.xml
 C:\Users\julio\Documents\FFJS\Application\Application\Application\obj\Debug\Application.dll.mdb
 C:\Users\julio\Documents\FFJS\Application\Application\Application\bin\Debug\Application.dll.mdb
