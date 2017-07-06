@@ -114,7 +114,7 @@ namespace Application
             var uri = ContactsContract.CommonDataKinds.Phone.ContentUri;
 
             string[] projection = { 
-                ContactsContract.Contacts.InterfaceConsts.DisplayName, ContactsContract.CommonDataKinds.Phone.Number, ContactsContract.CommonDataKinds.Email.InterfaceConsts.Data};
+               ContactsContract.Contacts.InterfaceConsts.Id, ContactsContract.Contacts.InterfaceConsts.DisplayName, ContactsContract.CommonDataKinds.Phone.Number, ContactsContract.CommonDataKinds.Email.Address};
 
             var cursor = ManagedQuery(uri, projection, null, null, ContactsContract.Contacts.InterfaceConsts.Id);
 
@@ -124,9 +124,10 @@ namespace Application
                 {   /*"Contact ID: {0}, Contact Name: {1}, Telefoonnummer {2}",*/
                     clist.Add(new TPerson()
                     {
-                        contactnaam = cursor.GetString(cursor.GetColumnIndex(projection[0])),
-                        telefoonnummer = cursor.GetString(cursor.GetColumnIndex(projection[1])),
-                        email = cursor.GetString(cursor.GetColumnIndex(projection[2]))
+                        code = cursor.GetString(cursor.GetColumnIndex(projection[0])),
+                        contactnaam = cursor.GetString(cursor.GetColumnIndex(projection[1])),
+                        telefoonnummer = cursor.GetString(cursor.GetColumnIndex(projection[2])),
+                        email = cursor.GetString(cursor.GetColumnIndex(projection[3]))
                     });
 
                 } while (cursor.MoveToNext());
@@ -159,13 +160,16 @@ namespace Application
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", APIkey);
                 client.DefaultRequestHeaders.Add("Authorization", Authkey);
 
+                string code;
                 string naam;
                 string tnummer;
                 string email;
+
                 var body = new List<KeyValuePair<string, string>>();
 
                 foreach (var item in clist)
                 {
+                    code = item.code;
                     naam = item.contactnaam;
                     tnummer = item.telefoonnummer;
                     email = item.email;
